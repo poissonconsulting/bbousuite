@@ -1,6 +1,7 @@
 #' List all bbousite packages
 #'
-#' @param include_self Include bbousite in the list?
+#' Inspired by `tidyverse::tidyverse_packages()`.
+#' @param include_self Include bbousuite in the list?
 #' @export
 #' @examples
 #' bbousuite_packages()

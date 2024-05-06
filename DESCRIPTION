@@ -1,9 +1,19 @@
 Package: bbousuite
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
-Authors@R: 
-    person("Joe", "Thorley", , "joe@pissonconsulting.ca", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-7683-4592"))
+Authors@R: c(
+    person("Seb", "Dalgarno", , "seb@poissonconsulting.ca", role = "aut",
+           comment = c(ORCID = "0000-0002-3658-4517")),
+    person("John", "Boulanger", , "boulange@ecological.bc.ca", role = "aut",
+           comment = c(ORCID = "0000-0001-8222-1445")),
+    person("Ayla", "Pearson", , "ayla@poissonconsulting.ca", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-7388-1222")),
+    person("Joe", "Thorley", , "joe@poissonconsulting.ca", role = "aut",
+           comment = c(ORCID = "0000-0002-7683-4592")),
+    person("Troy", "Hegel", , "troy.hegel@gov.ab.ca", role = "aut"),
+    person("Barry", "Nobert", , "barry.nobert@gov.ab.ca", role = "aut"),
+    person("Dave", "Hervieux", , "dave.hervieux@gov.ab.ca", role = "aut")
+    )
 Description: What the package does (one paragraph).
 License: Apache License (== 2.0) | file LICENSE
 Encoding: UTF-8

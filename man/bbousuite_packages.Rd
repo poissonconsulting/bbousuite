@@ -7,10 +7,10 @@
 bbousuite_packages(include_self = TRUE)
 }
 \arguments{
-\item{include_self}{Include bbousite in the list?}
+\item{include_self}{Include bbousuite in the list?}
 }
 \description{
-List all bbousite packages
+Inspired by \code{tidyverse::tidyverse_packages()}.
 }
 \examples{
 bbousuite_packages()

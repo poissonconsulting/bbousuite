@@ -9,7 +9,17 @@
 What the package does (one paragraph).
 }
 \author{
-\strong{Maintainer}: Joe Thorley \email{joe@pissonconsulting.ca} (\href{https://orcid.org/0000-0002-7683-4592}{ORCID})
+\strong{Maintainer}: Ayla Pearson \email{ayla@poissonconsulting.ca} (\href{https://orcid.org/0000-0001-7388-1222}{ORCID})
+
+Authors:
+\itemize{
+  \item Seb Dalgarno \email{seb@poissonconsulting.ca} (\href{https://orcid.org/0000-0002-3658-4517}{ORCID})
+  \item John Boulanger \email{boulange@ecological.bc.ca} (\href{https://orcid.org/0000-0001-8222-1445}{ORCID})
+  \item Joe Thorley \email{joe@poissonconsulting.ca} (\href{https://orcid.org/0000-0002-7683-4592}{ORCID})
+  \item Troy Hegel \email{troy.hegel@gov.ab.ca}
+  \item Barry Nobert \email{barry.nobert@gov.ab.ca}
+  \item Dave Hervieux \email{dave.hervieux@gov.ab.ca}
+}
 
 }
 \keyword{internal}
