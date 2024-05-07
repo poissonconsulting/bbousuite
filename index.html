@@ -46,7 +46,14 @@
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
 </form>
 
-      <ul class="navbar-nav"></ul>
+      <ul class="navbar-nav">
+<li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/poissonconsulting/bbousuite/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 
     
@@ -57,22 +64,46 @@
 <div class="page-header"><h1 id="bbousuite">bbousuite<a class="anchor" aria-label="anchor" href="#bbousuite"></a>
 </h1></div>
 <!-- badges: start -->
-<!-- badges: end -->
-<p>The goal of bbousuite is to …</p>
+
+<p>The goal of <code>bbousuite</code> is to make it easy to install and load the (<code>bbou</code>) suite of R packages for Boreal cariBOU.</p>
+<p>The packages are designed to analysis (<code>bbouretro</code> and <code>bboutools</code>) and simulate (<code>bbousims</code>) Boreal Caribou survival and recruitment data (<code>bboudata</code>) to estimate population growth rates. A shiny app is also available (<code>bboushiny</code>).</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
+<p>You can install the latest version of <code>bbousuite</code> from <a href="https://github.com/poissonconsulting/bbousuite" class="external-link">GitHub</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"poissonconsulting/bbousuite"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+<h2 id="load">Load<a class="anchor" aria-label="anchor" href="#load"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://poissonconsulting.github.io/bbousuite/">bbousuite</a></span><span class="op">)</span></span>
-<span><span class="co">## basic example code</span></span></code></pre></div>
+<p>To load <code>bbousite</code></p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/bbousuite" class="external-link">bbousuite</a></span><span class="op">)</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="packages">Packages<a class="anchor" aria-label="anchor" href="#packages"></a>
+</h3>
+<p>The packages installed and loaded by <code>bbousuite</code> suite are:</p>
+<ul>
+<li><a href="https://github.com/poissonconsulting/bboudata" class="external-link">bboudata</a></li>
+<li><a href="https://github.com/poissonconsulting/bbouretro" class="external-link">bbouretro</a></li>
+<li><a href="https://github.com/poissonconsulting/bboutools" class="external-link">bboutools</a></li>
+<li><a href="https://github.com/poissonconsulting/bbousims" class="external-link">bbousims</a></li>
+<li><a href="https://github.com/poissonconsulting/bboushiny" class="external-link">bboushiny</a></li>
+</ul>
 </div>
 </div>
-  </main><aside class="col-md-3"><div class="license">
+</div>
+  </main><aside class="col-md-3"><div class="links">
+<h2 data-toc-skip>Links</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/poissonconsulting/bbousuite/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/poissonconsulting/bbousuite/issues" class="external-link">Report a bug</a></li>
+</ul>
+</div>
+
+<div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li>Apache License (== 2.0) | file <a href="LICENSE-text.html">LICENSE</a>
@@ -108,7 +139,14 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://github.com/poissonconsulting/bbousuite/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/poissonconsulting/bbousuite/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/gh/poissonconsulting/bbousuite?branch=main" class="external-link"><img src="https://codecov.io/gh/poissonconsulting/bbousuite/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>
