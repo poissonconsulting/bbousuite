@@ -1,2 +1,2 @@
 library(bbousuite)
-bboudata::bbousurv_a
+print(bboudata::bbousurv_a, n = 5)

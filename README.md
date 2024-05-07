@@ -36,6 +36,7 @@ To load `bbousite`
 
 ``` r
 library(bbousuite)
+#> Attaching: bboudata bbouretro bboushiny bbousims bboutools bbousuite
 ```
 
 ### Packages
@@ -52,3 +53,32 @@ The packages installed and loaded by `bbousuite` suite are:
 
 `bbousuite` was inspired by the
 [`tidyverse`](https://github.com/tidyverse/tidyverse) package.
+
+## Getting Help or Reporting an Issue
+
+To report bugs/issues/feature requests, please file an
+[issue](https://github.com/poissonconsulting/bbousuite/issues/).
+
+## How to Contribute
+
+If you would like to contribute to the package, please see our
+[CONTRIBUTING](https://github.com/poissonconsulting/bbousuite/blob/master/.github/CONTRIBUTING.md)
+guidelines.
+
+## Code of Conduct
+
+Please note that the ssdtools project is released with a [Contributor
+Code of
+Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
+
+## Licensing
+
+Copyright xx xx  
+Copyright 2023-2024 Province of Alberta  
+
+The documentation is released under the [CC BY 4.0
+License](https://creativecommons.org/licenses/by/4.0/)
+
+The code is released under the [Apache License
+2.0](https://www.apache.org/licenses/LICENSE-2.0)
