@@ -13,29 +13,28 @@ Authors@R: c(
     person("Troy", "Hegel", , "troy.hegel@gov.ab.ca", role = "aut"),
     person("Barry", "Nobert", , "barry.nobert@gov.ab.ca", role = "aut"),
     person("Dave", "Hervieux", , "dave.hervieux@gov.ab.ca", role = "aut")
-    )
-Description: The `bbou` suite of packages are designed to allow analysis 
-    (`bbouretro` and `bboutools`) and simulation (`bbousims`) 
-    of Boreal Caribou survival and recruitment
-    data ('bboudata') to estimate population growth rates. A shiny app is 
-    also available (`bboushiny`). 
+  )
+Description: The `bbou` suite of packages are designed to allow analysis
+    (`bbouretro` and `bboutools`) and simulation (`bbousims`) of Boreal
+    Caribou survival and recruitment data ('bboudata') to estimate
+    population growth rates. A shiny app is also available (`bboushiny`).
 License: Apache License (== 2.0) | file LICENSE
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+URL: https://poissonconsulting.github.io/bbousuite/
 Imports:
     bboudata,
     bbouretro,
-    bboutools,
+    bboushiny,
     bbousims,
-    bboushiny
+    bboutools
 Suggests: 
     testthat (>= 3.0.0)
 Remotes:
     poissonconsulting/bboudata,
     poissonconsulting/bbouretro,
-    poissonconsulting/bboutools,
+    poissonconsulting/bboushiny,
     poissonconsulting/bbousims,
-    poissonconsulting/bboushiny
+    poissonconsulting/bboutools
 Config/testthat/edition: 3
-URL: https://poissonconsulting.github.io/bbousuite/
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
