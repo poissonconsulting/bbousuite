@@ -13,10 +13,10 @@ coverage](https://codecov.io/gh/poissonconsulting/bbousuite/branch/main/graph/ba
 <!-- badges: end -->
 
 The goal of `bbousuite` is to make it easy to install and load the
-(`bbou`) suite of R packages for Boreal cariBOU.
+(`bbou`) suite of R packages for **B**oreal cari**BOU**.
 
 The packages are designed to analysis (`bbouretro` and `bboutools`) and
-simulate (`bbousims`) Boreal Caribou survival and recruitment data
+simulate (`bbousims`) boreal caribou survival and recruitment data
 (`bboudata`) to estimate population growth rates. A shiny app is also
 available (`bboushiny`).
 
@@ -47,3 +47,8 @@ The packages installed and loaded by `bbousuite` suite are:
 - [bboutools](https://github.com/poissonconsulting/bboutools)
 - [bbousims](https://github.com/poissonconsulting/bbousims)
 - [bboushiny](https://github.com/poissonconsulting/bboushiny)
+
+## Inspiration
+
+`bbousuite` was inspired by the
+[`tidyverse`](https://github.com/tidyverse/tidyverse) package.
