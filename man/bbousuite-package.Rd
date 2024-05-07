@@ -4,9 +4,9 @@
 \name{bbousuite-package}
 \alias{bbousuite}
 \alias{bbousuite-package}
-\title{bbousuite: What the Package Does (One Line, Title Case)}
+\title{bbousuite: Easily Install and Load `bbou` (Boreal cariBOU) Packages}
 \description{
-What the package does (one paragraph).
+The `bbou` suite of packages are designed to allow analysis (`bbouretro` and `bboutools`) and simulation (`bbousims`) of Boreal Caribou survival and recruitment data ('bboudata') to estimate population growth rates. A shiny app is also available (`bboushiny`).
 }
 \author{
 \strong{Maintainer}: Ayla Pearson \email{ayla@poissonconsulting.ca} (\href{https://orcid.org/0000-0001-7388-1222}{ORCID})

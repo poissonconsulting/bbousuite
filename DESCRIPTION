@@ -1,5 +1,5 @@
 Package: bbousuite
-Title: What the Package Does (One Line, Title Case)
+Title: Easily Install and Load `bbou` (Boreal cariBOU) Packages
 Version: 0.0.0.9000
 Authors@R: c(
     person("Seb", "Dalgarno", , "seb@poissonconsulting.ca", role = "aut",
@@ -14,7 +14,11 @@ Authors@R: c(
     person("Barry", "Nobert", , "barry.nobert@gov.ab.ca", role = "aut"),
     person("Dave", "Hervieux", , "dave.hervieux@gov.ab.ca", role = "aut")
     )
-Description: What the package does (one paragraph).
+Description: The `bbou` suite of packages are designed to allow analysis 
+    (`bbouretro` and `bboutools`) and simulation (`bbousims`) 
+    of Boreal Caribou survival and recruitment
+    data ('bboudata') to estimate population growth rates. A shiny app is 
+    also available (`bboushiny`). 
 License: Apache License (== 2.0) | file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
