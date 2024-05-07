@@ -1,7 +1,9 @@
-
 # bbousuite
 
 <!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/poissonconsulting/bbousuite/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/bbousuite/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/poissonconsulting/bbousuite/branch/main/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/bbousuite?branch=main)
 <!-- badges: end -->
 
 The goal of `bbousuite` is to make it easy to install and load the (`bbou`) suite of

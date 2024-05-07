@@ -8,6 +8,13 @@
 \description{
 The `bbou` suite of packages are designed to allow analysis (`bbouretro` and `bboutools`) and simulation (`bbousims`) of Boreal Caribou survival and recruitment data ('bboudata') to estimate population growth rates. A shiny app is also available (`bboushiny`).
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://poissonconsulting.github.io/bbousuite/}
+}
+
+}
 \author{
 \strong{Maintainer}: Ayla Pearson \email{ayla@poissonconsulting.ca} (\href{https://orcid.org/0000-0001-7388-1222}{ORCID})
 
