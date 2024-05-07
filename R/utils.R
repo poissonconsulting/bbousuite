@@ -1,3 +1,9 @@
+msg <- function(...) {
+  if (!isTRUE(getOption("bbousuite.quiet"))) {
+    packageStartupMessage(...)
+  }
+}
+
 #' List all bbousite packages
 #'
 #' Inspired by `tidyverse::tidyverse_packages()`.
