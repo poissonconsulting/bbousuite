@@ -19,7 +19,9 @@ Description: The `bbou` suite of packages are designed to allow analysis
     Caribou survival and recruitment data ('bboudata') to estimate
     population growth rates. A shiny app is also available (`bboushiny`).
 License: Apache License (== 2.0) | file LICENSE
-URL: https://poissonconsulting.github.io/bbousuite/
+URL: https://github.com/poissonconsulting/bbousuite,
+    https://poissonconsulting.github.io/bbousuite/
+BugReports: https://github.com/poissonconsulting/bbousuite/issues
 Imports:
     bboudata,
     bbouretro,
