@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{bbousuite_packages}
 \alias{bbousuite_packages}
-\title{List all bbousite packages}
+\title{List all bbousuite packages}
 \usage{
 bbousuite_packages(include_self = TRUE)
 }
