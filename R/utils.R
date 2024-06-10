@@ -4,7 +4,7 @@ msg <- function(...) {
   }
 }
 
-#' List all bbousite packages
+#' List all bbousuite packages
 #'
 #' Inspired by `tidyverse::tidyverse_packages()`.
 #' @param include_self Include bbousuite in the list?

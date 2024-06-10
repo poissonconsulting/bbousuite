@@ -7,7 +7,6 @@
 #' licensing_md()
 licensing_md <- function() {
   "## Licensing
-  Copyright xx xx\\
   Copyright 2023-2024 Province of Alberta\\
   
   The documentation is released under the
