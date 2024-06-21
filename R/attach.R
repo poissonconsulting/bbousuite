@@ -8,7 +8,7 @@ pkg_attach <- function(pkg) {
 
 pkgs_attach <- function(pkgs) {
   msg("Attaching: ", paste(pkgs, collapse = " "))
-  
+
   suppressPackageStartupMessages(
     lapply(pkgs, pkg_attach)
   )
