@@ -40,9 +40,10 @@ tags:
 
 # Summary
 
-Boreal Caribou (*Rangifer tarandus caribou*) are ...
+Although many animal populations are managed based on their abundance [@williams_analysis_2002], in the case of mobile herding populations, such as boreal caribou (*Rangifer tarandus caribou*), which have large ranges, reliable abundance estimates can be impractical to obtain. 
+Consequently, such populations are commonly managed based on their population growth rate ($\lambda$) which can be estimated from the population recruitment (R) and adult female survival (S) rates [@hatter_moose_1991]. 
 
-The `bbou` suite of R packages is a set of R packages to facilitate analysis of Boreal Caribou survival and recruitment data to estimate population growth.
+The `bbou` suite of R packages is a set of R packages to facilitate analysis of Boreal Caribou survival and recruitment data to estimate population growth ($\lambda$).
 The `bboushiny` R package provides a Graphical User Interface to `bboutools`.
 
 # Statement of need
@@ -55,7 +56,11 @@ There is an existing web-based application [@eacker_webbased_2019] but ...
 
 ## bboudata
 
+The `bboudata` R package provides sample survival and recruitment data for boreal caribou.
+
 ## bbouretro
+
+The `bbouretro` R package contains functions to calculate survival, recruitment and population growth using the classical methods.
 
 ## bboutools
 
@@ -63,7 +68,12 @@ The `bboutools` R packages uses the `Nimble` R package [@de_valpine_programming_
 
 ## bbousims
 
+The `bbousims` R package allows users to simulate boreal caribou abundance over time from survival, ageing and birth processes. 
+
 ## bboushiny
+
+The `bboushiny` R package is a R shiny app for estimating boreal caribou population growth using the Bayesian method from the `bboutools` package. 
+`bboushiny` gives non-R users a way to utilize the functions from the `bboutools` package. 
 
 ## bbousuite
 
@@ -94,6 +104,6 @@ print(bboudata::bbousurv_a, 5)
 # Acknowledgements
 
 We acknowledge contributions from Alan Constant.
-Development of `ssdtools` was funded by the Province of Alberta and xx.
+Development of `bbousuite` was funded by the Province of Alberta and Environment and Climate Change Canada.
 
 # References
