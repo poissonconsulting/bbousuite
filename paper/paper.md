@@ -83,7 +83,7 @@ The `bboushiny` R package is a R shiny app for estimating boreal caribou populat
 The `bbousuite` R package facilitates installing and loading the other packages.
 
 # Example of use
-`
+
 To load all the packages you can use `library(bbousuite)` or each package can be loaded individually such as `library(bboudata)`.
 
 ```r
