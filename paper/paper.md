@@ -48,9 +48,12 @@ The `bboushiny` R package provides a Graphical User Interface to `bboutools`.
 
 # Statement of need
 
-Boreal Caribou are endangered.
-Different jurisdictions different methods.
-There is an existing web-based application [@eacker_webbased_2019] but ...
+Boreal Caribou are found in most provinces and territories in Canada and have been listed as threatened since 2003 [@ECCC_2023]. 
+Each jurisdiction has their own monitoring program responsible boreal caribou.
+There are multiple methods that are found in literature for how to estimate population growth which can make cross jurisdictional conversations on the health of the species complex. 
+The suite of tools in `bbousuite` allows jurisdictions to use simple standardized method for reporting population growth. 
+
+There is an existing web-based application [@eacker_webbased_2019] for estimating population growth rate but users found it difficult to use if they were not familiar with Bayesian statistics and had too many options to be a standarized method. 
 
 # Technical details
 
@@ -80,10 +83,11 @@ The `bboushiny` R package is a R shiny app for estimating boreal caribou populat
 The `bbousuite` R package facilitates installing and loading the other packages.
 
 # Example of use
-
-The following code ...:
+`
+To load all the packages you can use `library(bbousuite)` or each package can be loaded individually such as `library(bboudata)`.
 
 ```r
+set.seed(101)
 library(bbousuite)
 print(bboudata::bbousurv_c, n = 5)
 ```
@@ -102,8 +106,6 @@ print(bboudata::bbousurv_c, n = 5)
 ```
 
 ``` r
-set.seed(101)
-
 survival_est <-
   bbouretro::bbr_survival(
     bboudata::bbousurv_c,
@@ -125,17 +127,19 @@ bbouretro::bbr_growth_summarize(growth_est)
 
 ``` r
 # A tibble: 9 × 13
-  PopulationName CaribouYear     S     R estimate     se  lower  upper prop_lgt1 mean_sim_survival mean_sim_recruitment mean_sim_growth median_sim_growth
-  <chr>                <int> <dbl> <dbl>    <dbl>  <dbl>  <dbl>  <dbl>     <dbl>             <dbl>                <dbl>           <dbl>             <dbl>
-1 C                     2004 0.867 0.096    0.959  0.115  0.636  1.08      0.323             0.84                 0.097           0.931             0.956
-2 C                     2005 0.832 0.08     0.904  0.105  0.633  1.03      0.093             0.815                0.083           0.889             0.908
-3 C                     2006 1     0.068    1.07  NA     NA     NA        NA               NaN                    0.071         NaN                NA    
-4 C                     2007 0.458 0.059    0.487  0.128  0.262  0.766     0                 0.457                0.076           0.497             0.491
-5 C                     2008 0.941 0.083    1.03   0.1    0.739  1.16      0.615             0.914                0.089           1.01              1.02 
-6 C                     2009 1     0.14     1.16  NA     NA     NA        NA               NaN                    0.142         NaN                NA    
-7 C                     2010 0.926 0.158    1.1    0.085  0.877  1.23      0.854             0.908                0.161           1.08              1.10 
-8 C                     2011 0.96  0.112    1.08   0.075  0.872  1.16      0.861             0.942                0.114           1.06              1.08 
-9 C                     2012 0.924 0.133    1.07   0.072  0.875  1.15      0.808             0.91                 0.134           1.05              1.07 
+  PopulationName CaribouYear     S     R estimate     se  lower  upper prop_lgt1
+  <chr>                <int> <dbl> <dbl>    <dbl>  <dbl>  <dbl>  <dbl>     <dbl>
+1 C                     2004 0.867 0.096    0.959  0.115  0.636  1.08      0.323
+2 C                     2005 0.832 0.08     0.904  0.105  0.633  1.03      0.093
+3 C                     2006 1     0.068    1.07  NA     NA     NA        NA    
+4 C                     2007 0.458 0.059    0.487  0.128  0.262  0.766     0    
+5 C                     2008 0.941 0.083    1.03   0.1    0.739  1.16      0.615
+6 C                     2009 1     0.14     1.16  NA     NA     NA        NA    
+7 C                     2010 0.926 0.158    1.1    0.085  0.877  1.23      0.854
+8 C                     2011 0.96  0.112    1.08   0.075  0.872  1.16      0.861
+9 C                     2012 0.924 0.133    1.07   0.072  0.875  1.15      0.808
+# ℹ 4 more variables: mean_sim_survival <dbl>, mean_sim_recruitment <dbl>,
+#   mean_sim_growth <dbl>, median_sim_growth <dbl>
 ```
 
 ``` r
@@ -161,7 +165,6 @@ bboutools::bb_predict_growth(surv_fit, recruit_fit)
 ```
 
 ``` r
-
 survival <- bbousims::bbs_survival_caribou(
   survival_adult_female = 0.85,
   annual_sd_adult_female = 0.2,
@@ -185,7 +188,6 @@ population <- bbousims::bbs_population_caribou(survival,
 )
 
 bbousims::bbs_plot_population(population)
-
 ```
 
 ![](figures/bbousims-population.png)
@@ -195,6 +197,8 @@ bboushiny::run_bbou_app()
 ```
 
 ![](figures/bboushiny-survival.png)
+
+Additional examples and usage of each package can be on their websites. 
 
 # Acknowledgements
 
