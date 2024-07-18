@@ -23,7 +23,7 @@ A key objective is understanding how Bayesian approaches may offset low sample s
 
 We note that empirical comparisons are limited in that true parameter values are not known. 
 Therefore, we can only conclude whether estimates are similar or different between approaches rather than infer bias. 
-To fully explore estimators we also present simulations (citation) which allow assessment of bias and working characteristics across a full range of scenarios. 
+To fully explore estimators we also present [simulations](https://poissonconsulting.github.io/bbousuite/articles/simulations.html) which allow assessment of bias and working characteristics across a full range of scenarios. 
 
 # Methods and results
 
@@ -154,7 +154,7 @@ As a result, estimates are more stable from random effects models.
 Empirical comparisons illustrate the potential advantages of using random effects methods to estimate survival, recruitment, and trend.
 Namely, sharing of information across years with random effects models potentially offsets issues with sparse data creating unrealistic estimates with traditional and fixed effect approaches.
 The main question is whether there are cases where random effects may create bias by dismissing low or high parameter estimates when they are actually occurring.
-To explore this question as well as overall performance of estimators we use simulations as presented in (*citation*).
+To explore this question as well as overall performance of estimators we use [simulations](https://poissonconsulting.github.io/bbousuite/articles/simulations.html).
 Unlike empirical comparisons, simulations allow assessment of performance with known true parameter values therefore allowing further assessment of overall estimate performance.
 
 ## References
