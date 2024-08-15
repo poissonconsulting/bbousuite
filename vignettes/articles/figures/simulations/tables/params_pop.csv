@@ -1,0 +1,16 @@
+Parameter,Value
+Simulations,100
+Years,20
+Initial Adult Females,500
+Proportion Adult Female,0.65
+Proportion Yearling Female,0.5
+Month Collared,1
+Month Composition Survey,9
+Mean Group Size,5
+Minimum Group Size,2
+Probabiility Unsexed Adult Female,0.01
+Probabiility Unsexed Adult Male,0.01
+Group Coverage,"5%, 10%, 30%, 50%, 80%"
+Collared Adult Females,"5, 10, 20, 30, 50"
+Probability Uncertain Collar Survival,0
+Probability Uncertain Collar Mortality,0.01
