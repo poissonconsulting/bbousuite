@@ -49,7 +49,14 @@ See [this bbousims vignette](https://poissonconsulting.github.io/bbousims/articl
 Statistical methods compared include a Bayesian model with year as fixed effect, Bayesian model with year as random effect, and frequentist retro model. 
 See [this bboutools vignette](https://poissonconsulting.github.io/bboutools/articles/methods.html) for more details on statistical methods.
 All Bayesian models had vague priors. 
-Performance metrics used include bias, precision (95% CI width) and coverage (proportion of 95% CI including the true value).
+
+Performance metrics used include bias, precision and coverage.
+Bias is a measure of the degree to which the estimate over- or under-estimates the true value. 
+An unbiased estimator is one for which the mean bias across all estimates is zero. 
+Precision is simply the difference between the upper and lower limits of the 95% confidence intervals.
+Coverage is the proportion of estimates for which the 95% confidence intervals contains the true value.
+All performance metrics are visualized as boxplots, which display the median and 95% interquartile range. 
+Each boxplot is a summary of 2000 points (i.e., 100 simulations by 20 years).
 
 Frequentist retro methods fail to estimate standard error (and 95 CI) for annual survival when there are 0 observed mortalities. 
 In these cases, the annual population growth (lambda) estimates are also missing 95% CI. 
