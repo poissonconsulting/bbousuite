@@ -46,19 +46,20 @@ Realistic parameter values for survival/fecundity rates and population simulatio
 The simulated population is stable (i.e., lambda close to 1; table 4). 
 See [this bbousims vignette](https://poissonconsulting.github.io/bbousims/articles/bbousims.html) for more information on how survival and recruitment data are simulated, given the parameter values in table 1 and table 2. 
 
-Statistical methods compared include a Bayesian model with year as fixed effect, Bayesian model with year as random effect, and frequentist retro model. 
-See [this bboutools vignette](https://poissonconsulting.github.io/bboutools/articles/methods.html) for more details on statistical methods.
-All Bayesian models had vague priors. 
+Statistical methods compared include a Bayesian model with year as fixed effect, a Bayesian model with year as random effect, and a frequentist retro model. 
+See [this bboutools vignette](https://poissonconsulting.github.io/bboutools/articles/methods.html) for more details on the statistical methods.
+All Bayesian models had uninformative priors. 
 
 Performance metrics used include bias, precision and coverage.
 Bias is a measure of the degree to which the estimate over- or under-estimates the true value. 
 An unbiased estimator is one for which the mean bias across all estimates is zero. 
-Precision is simply the difference between the upper and lower limits of the 95% confidence intervals.
-Coverage is the proportion of estimates for which the 95% confidence intervals contains the true value.
+Precision is simply the difference between the upper and lower limits of the 95% CI.
+Note that for Bayesian models CI refers to the credible interval, whereas CI represents the confidence interval in frequentist methods. 
+Coverage is the proportion of estimates for which the 95% CI contain the true value.
 All performance metrics are visualized as boxplots, which display the median and 95% interquartile range. 
 Each boxplot is a summary of 2000 points (i.e., 100 simulations by 20 years).
 
-Frequentist retro methods fail to estimate standard error (and 95 CI) for annual survival when there are 0 observed mortalities. 
+Frequentist retro methods fail to estimate standard error (and 95% CI) for annual survival when there are 0 observed mortalities. 
 In these cases, the annual population growth (lambda) estimates are also missing 95% CI. 
 It is important to note that the precision plots exclude these values and the coverage plots assume that the known value is not within the 95% CI. 
 The number (and proportion) of these cases is summarized for each coverage scenario in table 5 and 6. 
@@ -98,13 +99,13 @@ cat(table_tag("growth/n_noCI", precap = "Table 6."))
 ```
 
 ## Discussion
-For the survival model, higher sample size resulted in reduced bias, higher precision and higher coverage for all methods.
+For the survival model, higher sample size resulted in reduced bias, higher precision and higher coverage for all statistical methods.
 The Bayesian random effects model performed best, with improvement over other methods particularly at lower sample sizes. 
 
 Results for the recruitment model were similar, although the difference between methods was less extreme. 
 In general, the Bayesian random effects model performed best.
-Surprisingly, coverage was reduced with higher proportion of groups observed in the Bayesian models. 
-We suspect that this caused by higher precision leading to a higher tendency for the 95% CI to not include the true value. 
+Surprisingly, coverage was reduced with higher proportion of groups observed in the Bayesian recruitment models. 
+We suspect that this is caused by higher precision leading to a higher tendency for the 95% CI to not include the true value. 
 
 The growth predictions are derived from the recruitment and survival estimates and thus, it is unsurprising that the Bayesian random effects model performed best. 
 
