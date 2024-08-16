@@ -1,5 +1,5 @@
 ---
-title: "Boreal Caribou Simulations 2023"
+title: "Boreal Caribou Simulations Analysis"
 author: "Dalgarno, S., Thorley, J.L., Boulanger, J. & Pearson, A."
 bibliography: bibliography.bib
 ---
@@ -38,11 +38,18 @@ table_tag <- function(file, precap){
 The objectives of this analysis are to:  
 
 - Simulate Boreal Caribou recruitment and survival data from key demographic and sampling parameters.  
-- Assess the ability of various statistical methods to recover true parameter values (i.e., by assessing bias, precision and 95% CI coverage) under various coverage scenarios (i.e., number of collared adult females and proportion of groups observed in composition surveys).
+- Assess the ability of various statistical methods to recover known parameter values from simulated data.
 
+One hundred recruitment and survival data sets were simulated from a single set of demographic (table 1) and sampling (table 2) parameters for each of 5 coverage scenarios (table 3). 
+Coverage scenarios included variation in the number of collared adult females (for survival data) and the proportion of groups observed in hypothetical composition surveys (for recruitment data).
 Realistic parameter values for survival/fecundity rates and population simulation were derived from observed values in anonymized example datasets.
-The simulated population is stable (i.e., lambda close to 1). 
-All Bayesian models have vague priors. 
+The simulated population is stable (i.e., lambda close to 1; table 4). 
+See [this bbousims vignette](https://poissonconsulting.github.io/bbousims/articles/bbousims.html) for more information on how survival and recruitment data are simulated, given the parameter values in table 1 and table 2. 
+
+Statistical methods compared include a Bayesian model with year as fixed effect, Bayesian model with year as random effect, and frequentist retro model. 
+See [this bboutools vignette](https://poissonconsulting.github.io/bboutools/articles/methods.html) for more details on statistical methods.
+All Bayesian models had vague priors. 
+Performance metrics used include bias, precision (95% CI width) and coverage (proportion of 95% CI including the true value).
 
 Frequentist retro methods fail to estimate standard error (and 95 CI) for annual survival when there are 0 observed mortalities. 
 In these cases, the annual population growth (lambda) estimates are also missing 95% CI. 
@@ -54,9 +61,9 @@ The number (and proportion) of these cases is summarized for each coverage scena
 ### Population
 ```{r}
 cat(table_tag("params_rates", precap = "Table 1."))
-cat(table_tag("demographic_summary", precap = "Table 2."))
-cat(table_tag("params_pop", precap = "Table 3."))
-cat(table_tag("scenarios", precap = "Table 4."))
+cat(table_tag("params_pop", precap = "Table 2."))
+cat(table_tag("scenarios", precap = "Table 3."))
+cat(table_tag("demographic_summary", precap = "Table 4."))
 cat(figure_tag("population", precap = "Figure 1."))
 ```
 
@@ -95,5 +102,6 @@ We suspect that this caused by higher precision leading to a higher tendency for
 The growth predictions are derived from the recruitment and survival estimates and thus, it is unsurprising that the Bayesian random effects model performed best. 
 
 The Bayesian random effects model exhibits 'shrinkage', i.e., a tendency for estimates to be pulled in toward the mean. 
-These simulations demonstrate that this behaviour is desirable as the random effects model tends to be more skeptical of extreme values, which are likely to result from the sampling process and are not likely to represent the true value. 
+This simulation analysis demonstrates that this behaviour is desirable as the random effects model tends to be more skeptical of extreme values. 
+Extreme values are likely to result from the sampling process rather than the ecological processes, especially at low sample sizes.
 
