@@ -1,14 +1,114 @@
 ---
-title: "Simulations"
+title: "Boreal Caribou Simulations Analysis"
+author: "Dalgarno, S., Thorley, J.L., Boulanger, J. & Pearson, A."
+bibliography: bibliography.bib
 ---
+  
+```{r, echo = FALSE, warning = FALSE, message = FALSE, include = FALSE, cache = FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE, comment = NA, results = "asis", cache = FALSE)
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+figure_tag <- function(file, precap){
+  path <- file.path("figures/simulations/plots", file)
+  rds <- readRDS(paste0(path, ".rds"))
+  rda <- readRDS(paste0(path, ".rda"))
+  png <- paste0(path, ".png")
+  width <- rda$width/6 * 100
+  caption <- rda$caption
+  img <- paste0("<img alt = \"", png, "\" src = \"", png, "\" title = \"", 
+      png, "\" width = \"", width, "%\">")
+  caption <- paste0("<figcaption>", precap, " ", caption, "</figcaption>")
+  paste0(c(character(0), "<figure>", img, caption, "</figure>"), collapse = "\n")
+}
+
+table_tag <- function(file, precap){
+  path <- file.path("figures/simulations/tables", file)
+  rds <- readRDS(paste0(path, ".rds"))
+  rda <- readRDS(paste0(path, ".rda"))
+  caption <- rda$caption
+  caption <- paste0(precap, " ", caption)
+  table <- knitr::kable(rds, format = "markdown", row.names = FALSE)
+  txt <- c(caption, "", table)
+  txt <- c(txt, "")
+  paste0(txt, collapse = "\n")
+}
 ```
 
-```{r setup}
-library(bbousuite)
+## Background
+
+The objectives of this analysis are to:  
+
+- Simulate Boreal Caribou recruitment and survival data from key demographic and sampling parameters.  
+- Assess the ability of various statistical methods to recover known parameter values from simulated data.
+
+One hundred recruitment and survival data sets were simulated from a single set of demographic (table 1) and sampling (table 2) parameters for each of 5 coverage scenarios (table 3). 
+Coverage scenarios included variation in the number of collared adult females (for survival data) and the proportion of groups observed in hypothetical composition surveys (for recruitment data).
+Realistic parameter values for survival/fecundity rates and population simulation were derived from observed values in anonymized example datasets.
+The simulated population is stable (i.e., lambda close to 1; table 4). 
+See [this bbousims vignette](https://poissonconsulting.github.io/bbousims/articles/bbousims.html) for more information on how survival and recruitment data are simulated, given the parameter values in table 1 and table 2. 
+
+Statistical methods compared include a Bayesian model with year as fixed effect, Bayesian model with year as random effect, and frequentist retro model. 
+See [this bboutools vignette](https://poissonconsulting.github.io/bboutools/articles/methods.html) for more details on statistical methods.
+All Bayesian models had vague priors. 
+
+Performance metrics used include bias, precision and coverage.
+Bias is a measure of the degree to which the estimate over- or under-estimates the true value. 
+An unbiased estimator is one for which the mean bias across all estimates is zero. 
+Precision is simply the difference between the upper and lower limits of the 95% confidence intervals.
+Coverage is the proportion of estimates for which the 95% confidence intervals contains the true value.
+All performance metrics are visualized as boxplots, which display the median and 95% interquartile range. 
+Each boxplot is a summary of 2000 points (i.e., 100 simulations by 20 years).
+
+Frequentist retro methods fail to estimate standard error (and 95 CI) for annual survival when there are 0 observed mortalities. 
+In these cases, the annual population growth (lambda) estimates are also missing 95% CI. 
+It is important to note that the precision plots exclude these values and the coverage plots assume that the known value is not within the 95% CI. 
+The number (and proportion) of these cases is summarized for each coverage scenario in table 5 and 6. 
+  
+## Results
+
+### Population
+```{r}
+cat(table_tag("params_rates", precap = "Table 1."))
+cat(table_tag("params_pop", precap = "Table 2."))
+cat(table_tag("scenarios", precap = "Table 3."))
+cat(table_tag("demographic_summary", precap = "Table 4."))
+cat(figure_tag("population", precap = "Figure 1."))
 ```
+
+### Survival
+```{r}
+cat(figure_tag("survival/bias", precap = "Figure 2."))
+cat(figure_tag("survival/precision", precap = "Figure 3."))
+cat(figure_tag("survival/coverage", precap = "Figure 4."))
+cat(table_tag("survival/n_se0", precap = "Table 5."))
+```
+
+### Recruitment
+```{r}
+cat(figure_tag("recruitment/bias", precap = "Figure 5."))
+cat(figure_tag("recruitment/precision", precap = "Figure 6."))
+cat(figure_tag("recruitment/coverage", precap = "Figure 7."))
+```
+
+### Growth
+```{r}
+cat(figure_tag("growth/bias", precap = "Figure 8."))
+cat(figure_tag("growth/precision", precap = "Figure 9."))
+cat(figure_tag("growth/coverage", precap = "Figure 10."))
+cat(table_tag("growth/n_noCI", precap = "Table 6."))
+```
+
+## Discussion
+For the survival model, higher sample size resulted in reduced bias, higher precision and higher coverage for all methods.
+The Bayesian random effects model performed best, with improvement over other methods particularly at lower sample sizes. 
+
+Results for the recruitment model were similar, although the difference between methods was less extreme. 
+In general, the Bayesian random effects model performed best.
+Surprisingly, coverage was reduced with higher proportion of groups observed in the Bayesian models. 
+We suspect that this caused by higher precision leading to a higher tendency for the 95% CI to not include the true value. 
+
+The growth predictions are derived from the recruitment and survival estimates and thus, it is unsurprising that the Bayesian random effects model performed best. 
+
+The Bayesian random effects model exhibits 'shrinkage', i.e., a tendency for estimates to be pulled in toward the mean. 
+This simulation analysis demonstrates that this behaviour is desirable as the random effects model tends to be more skeptical of extreme values. 
+Extreme values are likely to result from the sampling process rather than the ecological processes, especially at low sample sizes.
+
