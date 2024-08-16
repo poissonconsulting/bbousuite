@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Simulations • bbousuite</title>
+<title>Boreal Caribou Simulations Analysis • bbousuite</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Simulations">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Boreal Caribou Simulations Analysis">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -34,7 +34,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/empirical-comparisons.html">Empirical comparison of traditional and Bayesian approaches to estimate survival, recruitment and trend</a></li>
-    <li><a class="dropdown-item" href="../articles/simulations.html">Simulations</a></li>
+    <li><a class="dropdown-item" href="../articles/simulations.html">Boreal Caribou Simulations Analysis</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -57,7 +57,9 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1>Simulations</h1>
+      <h1>Boreal Caribou Simulations Analysis</h1>
+                        <h4 data-toc-skip class="author">Dalgarno, S.,
+Thorley, J.L., Boulanger, J. &amp; Pearson, A.</h4>
             
       
       <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/bbousuite/blob/main/vignettes/articles/simulations.Rmd" class="external-link"><code>vignettes/articles/simulations.Rmd</code></a></small>
@@ -66,10 +68,432 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/bbousuite" class="external-link">bbousuite</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Attaching: bboudata bbouretro bboushiny bbousims bboutools bbousuite</span></span></code></pre></div>
-  </main>
+<div class="section level2">
+<h2 id="background">Background<a class="anchor" aria-label="anchor" href="#background"></a>
+</h2>
+<p>The objectives of this analysis are to:</p>
+<ul>
+<li>Simulate Boreal Caribou recruitment and survival data from key
+demographic and sampling parameters.<br>
+</li>
+<li>Assess the ability of various statistical methods to recover known
+parameter values from simulated data.</li>
+</ul>
+<p>One hundred recruitment and survival data sets were simulated from a
+single set of demographic (table 1) and sampling (table 2) parameters
+for each of 5 coverage scenarios (table 3). Coverage scenarios included
+variation in the number of collared adult females (for survival data)
+and the proportion of groups observed in hypothetical composition
+surveys (for recruitment data). Realistic parameter values for
+survival/fecundity rates and population simulation were derived from
+observed values in anonymized example datasets. The simulated population
+is stable (i.e., lambda close to 1; table 4). See <a href="https://poissonconsulting.github.io/bbousims/articles/bbousims.html" class="external-link">this
+bbousims vignette</a> for more information on how survival and
+recruitment data are simulated, given the parameter values in table 1
+and table 2.</p>
+<p>Statistical methods compared include a Bayesian model with year as
+fixed effect, Bayesian model with year as random effect, and frequentist
+retro model. See <a href="https://poissonconsulting.github.io/bboutools/articles/methods.html" class="external-link">this
+bboutools vignette</a> for more details on statistical methods. All
+Bayesian models had vague priors.</p>
+<p>Performance metrics used include bias, precision and coverage. Bias
+is a measure of the degree to which the estimate over- or
+under-estimates the true value. An unbiased estimator is one for which
+the mean bias across all estimates is zero. Precision is simply the
+difference between the upper and lower limits of the 95% confidence
+intervals. Coverage is the proportion of estimates for which the 95%
+confidence intervals contains the true value. All performance metrics
+are visualized as boxplots, which display the median and 95%
+interquartile range. Each boxplot is a summary of 2000 points (i.e., 100
+simulations by 20 years).</p>
+<p>Frequentist retro methods fail to estimate standard error (and 95 CI)
+for annual survival when there are 0 observed mortalities. In these
+cases, the annual population growth (lambda) estimates are also missing
+95% CI. It is important to note that the precision plots exclude these
+values and the coverage plots assume that the known value is not within
+the 95% CI. The number (and proportion) of these cases is summarized for
+each coverage scenario in table 5 and 6.</p>
+</div>
+<div class="section level2">
+<h2 id="results">Results<a class="anchor" aria-label="anchor" href="#results"></a>
+</h2>
+<div class="section level3">
+<h3 id="population">Population<a class="anchor" aria-label="anchor" href="#population"></a>
+</h3>
+<p>Table 1. Parameter values for generation of survival and fecundity
+rates.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Parameter</th>
+<th align="right">Value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Survival Adult Female Intercept</td>
+<td align="right">0.86</td>
+</tr>
+<tr class="even">
+<td align="left">Survival Adult Female Annual SD</td>
+<td align="right">0.35</td>
+</tr>
+<tr class="odd">
+<td align="left">Survival Adult Female Month SD</td>
+<td align="right">0.10</td>
+</tr>
+<tr class="even">
+<td align="left">Survival Adult Female Annual within Month SD</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="odd">
+<td align="left">Survival Adult Female Trend</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="even">
+<td align="left">Survival Calf Female Intercept</td>
+<td align="right">0.50</td>
+</tr>
+<tr class="odd">
+<td align="left">Survival Calf Female Annual SD</td>
+<td align="right">0.35</td>
+</tr>
+<tr class="even">
+<td align="left">Survival Calf Female Month SD</td>
+<td align="right">0.10</td>
+</tr>
+<tr class="odd">
+<td align="left">Survival Calf Female Annual within Month SD</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="even">
+<td align="left">Survival Calf Female Trend</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="odd">
+<td align="left">Calves per Adult Female Intercept</td>
+<td align="right">0.70</td>
+</tr>
+<tr class="even">
+<td align="left">Calves per Adult Female Intercept Annual SD</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="odd">
+<td align="left">Calves per Adult Female Trend</td>
+<td align="right">0.00</td>
+</tr>
+</tbody>
+</table>
+<p>Table 2. Parameter values for population simulation.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Parameter</th>
+<th align="left">Value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Simulations</td>
+<td align="left">100</td>
+</tr>
+<tr class="even">
+<td align="left">Years</td>
+<td align="left">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Initial Adult Females</td>
+<td align="left">500</td>
+</tr>
+<tr class="even">
+<td align="left">Proportion Adult Female</td>
+<td align="left">0.65</td>
+</tr>
+<tr class="odd">
+<td align="left">Proportion Yearling Female</td>
+<td align="left">0.5</td>
+</tr>
+<tr class="even">
+<td align="left">Month Collared</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Month Composition Survey</td>
+<td align="left">9</td>
+</tr>
+<tr class="even">
+<td align="left">Mean Group Size</td>
+<td align="left">5</td>
+</tr>
+<tr class="odd">
+<td align="left">Minimum Group Size</td>
+<td align="left">2</td>
+</tr>
+<tr class="even">
+<td align="left">Probabiility Unsexed Adult Female</td>
+<td align="left">0.01</td>
+</tr>
+<tr class="odd">
+<td align="left">Probabiility Unsexed Adult Male</td>
+<td align="left">0.01</td>
+</tr>
+<tr class="even">
+<td align="left">Group Coverage</td>
+<td align="left">5%, 10%, 30%, 50%, 80%</td>
+</tr>
+<tr class="odd">
+<td align="left">Collared Adult Females</td>
+<td align="left">5, 10, 20, 30, 50</td>
+</tr>
+<tr class="even">
+<td align="left">Probability Uncertain Collar Survival</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="left">Probability Uncertain Collar Mortality</td>
+<td align="left">0.01</td>
+</tr>
+</tbody>
+</table>
+<p>Table 3. Scenarios for population simulation.</p>
+<table class="table">
+<colgroup>
+<col width="31%">
+<col width="13%">
+<col width="21%">
+<col width="33%">
+</colgroup>
+<thead><tr class="header">
+<th align="right">survival_adult_female</th>
+<th align="right">coverage</th>
+<th align="right">group_coverage</th>
+<th align="right">collared_adult_females</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">0.86</td>
+<td align="right">1</td>
+<td align="right">0.05</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="right">0.86</td>
+<td align="right">2</td>
+<td align="right">0.10</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="right">0.86</td>
+<td align="right">3</td>
+<td align="right">0.30</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="right">0.86</td>
+<td align="right">4</td>
+<td align="right">0.50</td>
+<td align="right">30</td>
+</tr>
+<tr class="odd">
+<td align="right">0.86</td>
+<td align="right">5</td>
+<td align="right">0.80</td>
+<td align="right">50</td>
+</tr>
+</tbody>
+</table>
+<p>Table 4. Key demographic summary parameters for model Caribou
+population</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Parameter</th>
+<th align="right">Value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Lambda</td>
+<td align="right">0.9916254</td>
+</tr>
+<tr class="even">
+<td align="left">Recruitment</td>
+<td align="right">0.1194539</td>
+</tr>
+<tr class="odd">
+<td align="left">Calf-Cow Ratio</td>
+<td align="right">0.2713178</td>
+</tr>
+<tr class="even">
+<td align="left">Adult Female Survival</td>
+<td align="right">0.8600000</td>
+</tr>
+<tr class="odd">
+<td align="left">Calf Survival</td>
+<td align="right">0.5000000</td>
+</tr>
+<tr class="even">
+<td align="left">Calves per Adult Female</td>
+<td align="right">0.7000000</td>
+</tr>
+</tbody>
+</table>
+<figure><img alt="/home/runner/work/bbousuite/bbousuite/vignettes/articles/figures/simulations/plots/population.png" src="figures/simulations/plots/population.png" title="figures/simulations/plots/population.png" width="100%"><figcaption>
+Figure 1. Population by stage for 100 simulations.
+</figcaption></figure>
+</div>
+<div class="section level3">
+<h3 id="survival">Survival<a class="anchor" aria-label="anchor" href="#survival"></a>
+</h3>
+<figure><img alt="/home/runner/work/bbousuite/bbousuite/vignettes/articles/figures/simulations/plots/survival/bias.png" src="figures/simulations/plots/survival/bias.png" title="figures/simulations/plots/survival/bias.png" width="100%"><figcaption>
+Figure 2. Bias (% difference) in annual survival point estimates and
+known survival for 100 simulations and 20 years, by sample size and
+statistical method.
+</figcaption></figure><figure><img alt="/home/runner/work/bbousuite/bbousuite/vignettes/articles/figures/simulations/plots/survival/precision.png" src="figures/simulations/plots/survival/precision.png" title="figures/simulations/plots/survival/precision.png" width="100%"><figcaption>
+Figure 3. Precision (95% CI width) in estimated annual survival for 100
+simulations and 20 years, by sample size and statistical method.
+‘Frequentist Retro’ estimates with standard error of 0 are included with
+CI width of 0. See table 5 for the number of estimates with SE of 0 in
+each coverage scenario.
+</figcaption></figure><figure><img alt="/home/runner/work/bbousuite/bbousuite/vignettes/articles/figures/simulations/plots/survival/coverage.png" src="figures/simulations/plots/survival/coverage.png" title="figures/simulations/plots/survival/coverage.png" width="83.3333333333333%"><figcaption>
+Figure 4. Proportion of the estimated annual survival 95% CI that
+contains the known value for 100 simulations and 20 years, by sample
+size and statistical method. In cases where the ‘Frequentist Retro’
+estimated SE is 0, we assumed that the known value is outside the 95%
+CI.
+</figcaption></figure><p>Table 5. Number and proportion (%) of annual survival estimates with
+no standard error (SE is 0). This occurs with the ‘Frequentist Retro’
+methods when there are 0 mortalities.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="right">Collars</th>
+<th align="right">No SE</th>
+<th align="right">% No SE</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">877</td>
+<td align="right">43.85</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">373</td>
+<td align="right">18.65</td>
+</tr>
+<tr class="odd">
+<td align="right">20</td>
+<td align="right">85</td>
+<td align="right">4.25</td>
+</tr>
+<tr class="even">
+<td align="right">30</td>
+<td align="right">16</td>
+<td align="right">0.80</td>
+</tr>
+<tr class="odd">
+<td align="right">50</td>
+<td align="right">0</td>
+<td align="right">0.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level3">
+<h3 id="recruitment">Recruitment<a class="anchor" aria-label="anchor" href="#recruitment"></a>
+</h3>
+<figure><img alt="/home/runner/work/bbousuite/bbousuite/vignettes/articles/figures/simulations/plots/recruitment/bias.png" src="figures/simulations/plots/recruitment/bias.png" title="figures/simulations/plots/recruitment/bias.png" width="100%"><figcaption>
+Figure 5. Bias (% difference) in annual recruitment point estimates and
+known survival for 100 simulations and 20 years, by proportion of groups
+observed and statistical method.
+</figcaption></figure><figure><img alt="/home/runner/work/bbousuite/bbousuite/vignettes/articles/figures/simulations/plots/recruitment/precision.png" src="figures/simulations/plots/recruitment/precision.png" title="figures/simulations/plots/recruitment/precision.png" width="100%"><figcaption>
+Figure 6. Precision (95% CI width) in estimated annual recruitment for
+100 simulations and 20 years, by proportion of groups observed and
+statistical method.
+</figcaption></figure><figure><img alt="/home/runner/work/bbousuite/bbousuite/vignettes/articles/figures/simulations/plots/recruitment/coverage.png" src="figures/simulations/plots/recruitment/coverage.png" title="figures/simulations/plots/recruitment/coverage.png" width="83.3333333333333%"><figcaption>
+Figure 7. Proportion of the estimated annual recruitment 95% CI that
+contains the known value for 100 simulations and 20 years, by proportion
+of groups observed and statistical method.
+</figcaption></figure>
+</div>
+<div class="section level3">
+<h3 id="growth">Growth<a class="anchor" aria-label="anchor" href="#growth"></a>
+</h3>
+<figure><img alt="/home/runner/work/bbousuite/bbousuite/vignettes/articles/figures/simulations/plots/growth/bias.png" src="figures/simulations/plots/growth/bias.png" title="figures/simulations/plots/growth/bias.png" width="100%"><figcaption>
+Figure 8. Bias (% difference) in annual population growth (lambda) point
+estimates and known survival for 100 simulations and 20 years, by
+coverage scenario and statistical method.
+</figcaption></figure><figure><img alt="/home/runner/work/bbousuite/bbousuite/vignettes/articles/figures/simulations/plots/growth/precision.png" src="figures/simulations/plots/growth/precision.png" title="figures/simulations/plots/growth/precision.png" width="100%"><figcaption>
+Figure 9. Precision (95% CI width) in estimated annual population growth
+(lambda) for 100 simulations and 20 years, by coverage scenario and
+statistical method. ‘Frequentist Retro’ estimates with missing CI are
+included with CI width of 0. See table 6 for the number of estimates
+with missing CI in each coverage scenario.
+</figcaption></figure><figure><img alt="/home/runner/work/bbousuite/bbousuite/vignettes/articles/figures/simulations/plots/growth/coverage.png" src="figures/simulations/plots/growth/coverage.png" title="figures/simulations/plots/growth/coverage.png" width="83.3333333333333%"><figcaption>
+Figure 10. Proportion of the estimated annual population growth 95% CI
+that contains the known value for 100 simulations and 20 years, by
+coverage scenario and statistical method. In cases where the estimate
+was missing CI, we assumed that the known value is outside the 95% CI.
+This occurs in the ‘Frequentist Retro’ method when there are 0
+mortalities and estimated SE in survival is 0.
+</figcaption></figure><p>Table 6. Number and proportion (%) of annual population growth
+(lambda) estimates with no CI due to missing survival SE. This occurs in
+the ‘Frequentist Retro’ method when there are 0 mortalities.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Coverage</th>
+<th align="right">No CI</th>
+<th align="right">% No CI</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">5% Observed, 5 Collars</td>
+<td align="right">877</td>
+<td align="right">43.85</td>
+</tr>
+<tr class="even">
+<td align="left">10% Observed, 10 Collars</td>
+<td align="right">373</td>
+<td align="right">18.65</td>
+</tr>
+<tr class="odd">
+<td align="left">20% Observed, 20 Collars</td>
+<td align="right">85</td>
+<td align="right">4.25</td>
+</tr>
+<tr class="even">
+<td align="left">40% Observed, 30 Collars</td>
+<td align="right">16</td>
+<td align="right">0.80</td>
+</tr>
+<tr class="odd">
+<td align="left">80% Observed, 50 Collars</td>
+<td align="right">0</td>
+<td align="right">0.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section level2">
+<h2 id="discussion">Discussion<a class="anchor" aria-label="anchor" href="#discussion"></a>
+</h2>
+<p>For the survival model, higher sample size resulted in reduced bias,
+higher precision and higher coverage for all methods. The Bayesian
+random effects model performed best, with improvement over other methods
+particularly at lower sample sizes.</p>
+<p>Results for the recruitment model were similar, although the
+difference between methods was less extreme. In general, the Bayesian
+random effects model performed best. Surprisingly, coverage was reduced
+with higher proportion of groups observed in the Bayesian models. We
+suspect that this caused by higher precision leading to a higher
+tendency for the 95% CI to not include the true value.</p>
+<p>The growth predictions are derived from the recruitment and survival
+estimates and thus, it is unsurprising that the Bayesian random effects
+model performed best.</p>
+<p>The Bayesian random effects model exhibits ‘shrinkage’, i.e., a
+tendency for estimates to be pulled in toward the mean. This simulation
+analysis demonstrates that this behaviour is desirable as the random
+effects model tends to be more skeptical of extreme values. Extreme
+values are likely to result from the sampling process rather than the
+ecological processes, especially at low sample sizes.</p>
+</div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
