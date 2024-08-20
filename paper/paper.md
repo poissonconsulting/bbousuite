@@ -44,16 +44,22 @@ Although many animal populations are managed based on their abundance [@williams
 Consequently, such populations are commonly managed based on their population growth rate ($\lambda$), which can be estimated from the population recruitment (R) and adult female survival (S) rates [@hatter_moose_1991]. 
 
 The `bbou` suite is a set of R packages to facilitate simulation and analysis of Boreal Caribou survival and recruitment data to estimate population growth ($\lambda$).
-It consists of:
+It consists of:  
 - [`bboudata`](https://poissonconsulting.github.io/bboudata/), a collection of anonymized example boreal caribou survival and recruitment data, which can be used for model fitting.  
-- [`bboutools`](https://poissonconsulting.github.io/bboutools/), a set of tools for estimating boreal caribou survival, recruitment and population growth with options to analyze models in a Bayesian or Maximum Likelihood framework.   
+- [`bboutools`](https://poissonconsulting.github.io/bboutools/), a set of tools for estimating boreal caribou survival, recruitment and population growth with options to analyze models in a Bayesian or Maximum Likelihood [@millar_maximum_2011] framework.   
 - [`bboushiny`](https://poissonconsulting.github.io/bboushiny/), a Graphical User Interface (GUI) to bboutools functionality.  
-- [`bbouretro`](https://poissonconsulting.github.io/bbouretro/), a set of tools for estimating boreal caribou survival, recruitment and population growth using historical frequentist methods.  
+- [`bbouretro`](https://poissonconsulting.github.io/bbouretro/), a set of tools for estimating boreal caribou survival, recruitment and population growth using traditional frequentist methods.  
 - [`bbousims`](https://poissonconsulting.github.io/bbousims/), a set of tools to simulate boreal caribou survival and recruitment data from hypothetical collaring and composition surveys of projected population abundance given survival, ageing and birth processes. 
 
-Each R package has a website including function documentation and articles with additional information such as methodology and example usage. 
-
 In general, `bboutools` aims to provide a standardized methodology consisting of relatively simple general models with sensible defaults that can be used to compare survival, recruitment and population growth estimates across jurisdictions. In addition, `bboushiny` provides access to `bboutools` functionality in a GUI; `bbouretro` facilitates comparison of results with historical methods; and `bbousims` facilitates assessment of the ability of various methods to recover known parameter values from simulated data. 
+
+Each R package in the suite has a website with function documentation and a 'Getting Started' guide, which includes background information and example usage. 
+In addition:  
+- `bboutools` contains vignettes on [current analytical methods](https://poissonconsulting.github.io/bboutools/articles/methods.html) and [prior selection](https://poissonconsulting.github.io/bboutools/articles/priors.html).  
+- `bbouretro` contains vignettes on [traditional analytical methods](https://poissonconsulting.github.io/bbouretro/articles/retro-methods.html) and [additional traditional methods not implemented](https://poissonconsulting.github.io/bbouretro/articles/traditional-methods.html).    
+- `bbousims` contains vignettes on [combining bbousims functionality with bboutools](https://poissonconsulting.github.io/bbousims/articles/bboutools.html) and [more general functionality for simulating populations](https://poissonconsulting.github.io/bbousims/articles/general.html), i.e., of other species.  
+- `bbousuite` contains vignettes with analyses comparing traditional and Bayesian methods with [actual](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) and [simulated](https://poissonconsulting.github.io/bbousuite/articles/simulations.html) data.  
+- `bboushiny` contains a user guide within the GUI.  
 
 # Statement of need
 
