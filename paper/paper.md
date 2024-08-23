@@ -54,7 +54,7 @@ It consists of:
 Each R package in the suite has a website with function documentation and a 'Get Started' guide.
 In addition, there are several vignettes, including on `bboutools` [analytical methods](https://poissonconsulting.github.io/bboutools/articles/methods.html) and [prior selection](https://poissonconsulting.github.io/bboutools/articles/priors.html); `bbouretro` [analytical methods](https://poissonconsulting.github.io/bbouretro/articles/retro-methods.html); [use of `bbousims` with `bboutools`](https://poissonconsulting.github.io/bbousims/articles/bboutools.html); a [detailed empirical comparison of Bayesian and classical methods methods](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) and [a comparison using simulated data](https://poissonconsulting.github.io/bbousuite/articles/simulations.html). 
 
-TODO figure shiny app
+![Figure 1. bboushiny GUI.](figures/bboushiny-survival.png)
 
 # Statement of need
 
@@ -75,28 +75,28 @@ While some functionality is similar, the motivation for which focus on projectio
 
 The Bayesian methods in `bboutools` are intended to replace the classical methods in `bbouretro`. 
 In particular, the random effects model is recommended by default where there are $\geq$ 5 years of data [@kery_bayesian_2011]. 
-Despite some key differences in methods, `bboutools` and `bbouretro` use the same underlying formulas to estimate survival, recruitment and population growth. 
+Despite some key differences, `bboutools` and `bbouretro` use the same underlying formulas to estimate survival, recruitment and population growth. 
 
 Survival is estimated from the monthly fate of collared adult females using the staggered entry Kaplan-Meier method [@pollock_survival_1989].  
 
-$$ \hat{S}_{ij} = 1 - \frac{d_{i}}{r_{i}} $$
+$$ \widehat{{S}_{ij}} = 1 - \frac{d_{ij}}{r_{ij}} $$
 
-where $\hat{S}_{i}$ is the survival probability for the $i^{th}$ period, $d_{ij}$ is the number of mortalities during the period and $r_{i}$ is the number of collared individuals at the start of the period.
+where $\widehat{{S}_{ij}}$ is the survival probability for the $i^{th}$ month and $j^{th}$ year, $d_{ij}$ is the number of mortalities during the period and $r_{ij}$ is the number of collared individuals at the start of the period.
 
-Annual survival $\hat{S}(j)$ in the $j^{th}$ year is estimated as 
-$$\hat{S}(j) = \prod_{i=1}(\hat{S}_{i,j})$$
+Annual survival $\widehat{S_j}$ is estimated as 
+$$\widehat{S_j} = \prod_{i=1}(\widehat{{S}_{ij}})$$
 
 There is an option in both `bboutools` and `bbouretro` to include uncertain mortaliites in the total mortalities summed prior to model fitting. 
 
 Recruitment is estimated from annual composition surveys of boreal caribou groups with methods following DeCesare et al. [-@decesare_estimating_2012] 
 
-$$R_{\Delta} = \frac{X \cdot sex\_ratio}{1 + X \cdot sex\_ratio}$$
+$$R_{\Delta_j} = \frac{X_j \cdot sex\_ratio}{1 + X_j \cdot sex\_ratio}$$
 
-where $X \cdot sex\_ratio$ is the female calves per adult female and $R_{\Delta}$ accounts for recruitment of calves into the yearling/adult age class at the end of the caribou year.
+where $X_j$ is the annual calves per adult female and $R_{\Delta_j}$ is the annual recruitment, accounting for recruitment of calves into the yearling/adult age class at the end of the caribou year.
 
-Population growth ($\lambda$) is estimated using the basic Hatter-Bergerud method [@hatter_moose_1991].
+Population growth ($\lambda$) is estimated using the Hatter-Bergerud method [@hatter_moose_1991].
 
-$$\lambda = \frac{S}{1-R_\Delta}$$
+$$\lambda = \frac{\widehat{S}}{1-R_\Delta}$$
 
 Both `bboutools` and `bbouretro` allow the user to adjust the start month of the biological year.
 Data are aggregated by biological year prior to model fitting.
@@ -107,7 +107,7 @@ Parametric methods assume that the data are drawn from a pre-defined statistical
 Inference is based on the underlying statistical model, which allows for inference on statistical significance of model parameters. 
 For non-parametric approaches in `bbouretro`, which do not assume an underlying statistical model, estimates are based on simple ratios, with variances estimated using approximation formulas (survival) or bootstrap resampling methods. 
 
-Key advantages of the parametric approach are that:  
+Key advantages of the parametric approach are that:   
 - year can be modeled as a random effect, where parameter values are assumed to be drawn from a common underlying distribution and information is shared among years.  
 - models can include estimation of an underlying trend.  
 - uncertainty around survival estimates can be estimated in cases where there are 0 mortalities in a year; this is not possible using traditional methods.  
@@ -116,36 +116,44 @@ Key advantages of the parametric approach are that:
 The `bboutools` approach uses heirarchical Generalized Linear Models to estimate survival and recruitment. 
 
 A survival model including a year random effect and trend takes the form
-$$d_{i,j} ~ Binomial(1 - \hat{S}_{i,j}, r_{i,j})$$
-$$logit(\hat{S}_{i,j}) = \beta_{0} + \alpha_{i} + \delta_{j} + \beta_{1} * Year_{j}$$  
-$$\alpha_i ~ Normal(0, \sigma_{\alpha})$$  
-$$\delta_j ~ Normal(0, \sigma_{\delta})$$ 
+$$
+\begin{aligned}
+d_{ij} & \sim \text{Binomial}(1 - \widehat{S_{ij}}, r_{ij}) \\
+\text{logit}(\widehat{{S}_{ij}}) & = \beta_{0} + \alpha_{i} + \delta_{j} + \beta_{1} \cdot Year_{j} \\
+\alpha_{i} & \sim \text{Normal}(0, \sigma_{\alpha}) \\
+\delta_{j} & \sim \text{Normal}(0, \sigma_{\delta}) \\
+\end{aligned}
+$$
 
-where $d_{i,j}$ is the number of mortalities in the $i^{th}$ month and $j^{th}$ year, $r_{i,j}$ is the number of collared individuals at the start of the month, $\hat{S}_{i,j}$ is the survival probability, $\alpha_i$ is a monthly random effect, $\delta_i$ is an annual random effect and `\beta_{1}` represents the trend. 
+where $d_{i,j}$ is the number of mortalities in the $i^{th}$ month and $j^{th}$ year, $r_{i,j}$ is the number of collared individuals at the start of the month, $\wide{hat{S}_{ij}}$ is the survival probability, $\alpha_i$ is a monthly random effect with SD $\sigma_{\alpha}$, $\delta_i$ is an annual random effect with SD $\sigma_{\delta}$ and $\beta_{1}$ represents the trend. 
 
 A recruitment model including random and trend takes the form
-$$Calves_{j} ~ Binomial(\delta[i], AdultFemales[i])$$
-$$logit(\delta_{j}) = \beta_{0} + \alpha_{j} + \beta_{1} * Year[i]$$
-$$\alpha_{j} ~ Normal(0, \sigma_{\alpha})$$
-$$FemaleYearlings_{j} ~ Binomial(sex_ratio, Yearlings_{j})$$
-$$Cows_{j} ~ Binomial(adult_female_proportion, CowsBulls_{j})$$
-$$AdultFemalesOther_{j} ~ Binomial(adulte_female_proportion, AdultsUnknown_{j})$$
-$$AdultFemales_{j} = FemaleYearlings_{j} + Cows_{j} + AdultFemalesOther_{j}$$
+$$
+\begin{aligned}
+Calves_{j} & \sim \text{Binomial}(X_{j}, AdultFemales_{j}) \\
+\text{logit}(\delta_{j}) & = \beta_{0} + \alpha_{j} + \beta_{j} \cdot Year_{j} \\
+\alpha_{j} & \sim \text{Normal}(0, \sigma_{\alpha}) \\
+FemaleYearlings_{j} & \sim \text{Binomial}(sex\_ratio, Yearlings_{j}) \\
+Cows_{j} & \sim \text{Binomial}(adult\_sex\_ratio, CowsBulls_{j}) \\
+AdultFemalesOther_{j} & \sim \text{Binomial}(adult\_sex\_ratio, AdultsUnknown_{j}) \\
+AdultFemales_{j} & = FemaleYearlings_{j} + Cows_{j} + AdultFemalesOther_{j} \\
+\end{aligned}
+$$
 
-where $\delta_{j}$ is the calves per adult female in the $j^{th}$ year, $\alpha_{j}$ is an annual random effect and $\beta_{1}$ represents the trend. 
+where $X_{j}$ is the calves per adult female in the $j^{th}$ year, $\alpha_{j}$ is an annual random effect with SD $\sigma_{\alpha}$ and $\beta_{1}$ represents the trend. 
 
-Groups are aggregated by year prior to model fitting to prevent the number of calves exceeding the number of cows.
+The model includes demographic stochasticity. 
+Groups are aggregated by year prior to model fitting.
 The sex ratio is fixed and can be adjusted by the user, with default of 0.5.
-The adult female proportion can be estimated from counts of cows and bulls or fixed, with a default of 0.65, which accounts for higher mortality of males (Smith 2004).
-The model includes demographic stochasticity.
+The adult female proportion can be estimated from counts of cows and bulls or fixed, with a default of 0.65, which accounts for higher mortality of males .
 
-The models are identical for ML and Bayesian frameworks, although methods for parameter estimation differ and prior information can be incorporated in the Bayesian framework. 
+Models are identical for ML and Bayesian frameworks, although methods for parameter estimation differ and prior information can be incorporated in the Bayesian framework. 
 By default, `bboutools` uses uninformative priors and these can be adjusted by the user. 
 
-An [empirical comparison](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) of `bbouretro` and `bboutools` methods (i.e., on real data) showed that `bbouretro` methods yield similar results to Bayesian fixed-effects models with vague priors.
-As well, ML and Bayesian models yield similar results when priors are vague.
-Random effects models tend to differ from traditional/fixed effect models, with annual estimates pulled in toward the grand mean (figure...). 
-We would
+An [empirical comparison](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) of `bbouretro` and `bboutools` methods (i.e., on real data) showed that `bbouretro` methods yield similar results to Bayesian fixed-effects models with uninformative priors.
+As well, ML and Bayesian models yield similar results with uninformative priors.
+Estiamtes from random effects models tend to differ from traditional and fixed effect models. 
+This is explored in more detail below.
 
 Simulating data (i.e., with `bbousims`) allows for comparison of various methods' ability to recover known parameter values. 
 [We compared](https://poissonconsulting.github.io/bbousuite/articles/simulations.html) `bbouretro` methods with `bboutools` Bayesian models with fixed or random year effects across 100 simulations, 20 years and 5 sample size scenarios (i.e., collared adult females, groups observed in hypothetical composition surveys). 
