@@ -45,101 +45,130 @@ Consequently, such populations are commonly managed based on their population gr
 
 The `bbou` suite is a set of R packages to facilitate simulation and analysis of Boreal Caribou survival and recruitment data to estimate population growth ($\lambda$).
 It consists of:  
-- [`bboudata`](https://poissonconsulting.github.io/bboudata/), a collection of anonymized example boreal caribou survival and recruitment data, which can be used for model fitting.  
-- [`bboutools`](https://poissonconsulting.github.io/bboutools/), a set of tools for estimating boreal caribou survival, recruitment and population growth with options to analyze models in a Bayesian or Maximum Likelihood [@millar_maximum_2011] framework.   
-- [`bboushiny`](https://poissonconsulting.github.io/bboushiny/), a Graphical User Interface (GUI) to bboutools functionality.  
+- [`bboudata`](https://poissonconsulting.github.io/bboudata/), a collection of real (anonymized) and simulated boreal caribou survival and recruitment example data.  
+- [`bboutools`](https://poissonconsulting.github.io/bboutools/), a set of tools for estimating boreal caribou survival, recruitment and population growth in a Bayesian or Maximum Likelihood [@millar_maximum_2011] framework, implemented under the hood using the `Nimble` R package [@de_valpine_programming_2017].   
+- [`bboushiny`](https://poissonconsulting.github.io/bboushiny/), a Graphical User Interface (GUI) to bboutools functionality (figure 1).  
 - [`bbouretro`](https://poissonconsulting.github.io/bbouretro/), a set of tools for estimating boreal caribou survival, recruitment and population growth using traditional frequentist methods.  
-- [`bbousims`](https://poissonconsulting.github.io/bbousims/), a set of tools to simulate boreal caribou survival and recruitment data from hypothetical collaring and composition surveys of projected population abundance given survival, ageing and birth processes. 
+- [`bbousims`](https://poissonconsulting.github.io/bbousims/), a set of tools to simulate boreal caribou survival and recruitment data.
 
-In general, `bboutools` aims to provide a standardized methodology consisting of relatively simple general models with sensible defaults that can be used to compare survival, recruitment and population growth estimates across jurisdictions. In addition, `bboushiny` provides access to `bboutools` functionality in a GUI; `bbouretro` facilitates comparison of results with historical methods; and `bbousims` facilitates assessment of the ability of various methods to recover known parameter values from simulated data. 
+Each R package in the suite has a website with function documentation and a 'Get Started' guide.
+In addition, there are several vignettes, including on `bboutools` [analytical methods](https://poissonconsulting.github.io/bboutools/articles/methods.html) and [prior selection](https://poissonconsulting.github.io/bboutools/articles/priors.html); `bbouretro` [analytical methods](https://poissonconsulting.github.io/bbouretro/articles/retro-methods.html); [use of `bbousims` with `bboutools`](https://poissonconsulting.github.io/bbousims/articles/bboutools.html); a [detailed empirical comparison of Bayesian and classical methods methods](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) and [a comparison using simulated data](https://poissonconsulting.github.io/bbousuite/articles/simulations.html). 
 
-Each R package in the suite has a website with function documentation and a 'Getting Started' guide, which includes background information and example usage. 
-In addition:  
-- `bboutools` contains vignettes on [current analytical methods](https://poissonconsulting.github.io/bboutools/articles/methods.html) and [prior selection](https://poissonconsulting.github.io/bboutools/articles/priors.html).  
-- `bbouretro` contains vignettes on [traditional analytical methods](https://poissonconsulting.github.io/bbouretro/articles/retro-methods.html) and [additional traditional methods not implemented](https://poissonconsulting.github.io/bbouretro/articles/traditional-methods.html).    
-- `bbousims` contains vignettes on [combining bbousims functionality with bboutools](https://poissonconsulting.github.io/bbousims/articles/bboutools.html) and [more general functionality for simulating populations](https://poissonconsulting.github.io/bbousims/articles/general.html), i.e., of other species.  
-- `bbousuite` contains vignettes with analyses comparing traditional and Bayesian methods with [actual](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) and [simulated](https://poissonconsulting.github.io/bbousuite/articles/simulations.html) data.  
-- `bboushiny` contains a user guide within the GUI.  
+TODO figure shiny app
 
 # Statement of need
 
-Boreal caribou are found in most provinces and territories in Canada and have been listed as threatened since 2003 [@ECCC_2023]. 
+Boreal caribou are found in most provinces and territories in Canada and have been listed as threatened since 2003 [@ECCC_2023].
 Each jurisdiction has their own monitoring program responsible for boreal caribou.
 Numerous methods have been used to estimate population growth, which can make cross-jurisdictional conversations on the health of the species complex. 
-The suite of tools in `bbousuite` allows jurisdictions to use a simple standardized method for reporting population growth. 
+
+In general, the suite of R packages in `bbousuite` aims to address this.
+`bboutools` provides a standardized methodology with simple, general models and sensible defaults for estimating survival, recruitment and population growth that can be compared across jurisdictions.
+In addition, `bboushiny` provides access to basic `bboutools` functionality in a GUI; `bbouretro` facilitates comparison with historical methods; and `bbousims` provides tools to simulate data and thus facilitates comparison of various methods' ability to recover known parameter values. 
 
 There is an existing web-based application [@eacker_webbased_2019] for estimating population growth rate. 
 However,  users reported that it was difficult to use, especially if not familiar with Bayesian statistics, and had too many options to be a standarized method. 
 There is also an existing R package, `caribouMetrics`, and associated web-based application, `BayesianCaribouDemographicProjection`. 
 While some functionality is similar, the motivation for which focus on projection and integration with habitat models... (TODO add more here).
 
-# Technical details
+# Overview and comparison of methods
 
-## bboudata
+The Bayesian methods in `bboutools` are intended to replace the classical methods in `bbouretro`. 
+In particular, the random effects model is recommended by default where there are $\geq$ 5 years of data [@kery_bayesian_2011]. 
+Despite some key differences in methods, `bboutools` and `bbouretro` use the same underlying formulas to estimate survival, recruitment and population growth. 
 
-The `bboudata` R package provides anonymized boreal caribou survival and recruitment data, which can be used directly to fit models in `bboutools`, `bbouretro` and `bboushiny`.
+Survival is estimated from the monthly fate of collared adult females using the staggered entry Kaplan-Meier method [@pollock_survival_1989].  
 
-## bboutools
+$$ \hat{S}_{ij} = 1 - \frac{d_{i}}{r_{i}} $$
 
-The `bboutools` R package fits models to estimate boreal caribou survival, recruitment and population growth. 
-Models can be analyzed in a Bayesian or frequentist (Maximum Likelihood; [@millar_maximum_2011]) framework, with options  
-Under the hood, Maximum Likelihood (ML) and Bayesian models are fit using the `Nimble` R package [@de_valpine_programming_2017]. 
+where $\hat{S}_{i}$ is the survival probability for the $i^{th}$ period, $d_{ij}$ is the number of mortalities during the period and $r_{i}$ is the number of collared individuals at the start of the period.
 
-For both survival and recruitment models there is an option to to fit year as a fixed, random or continuous (i.e., trend) effect.
-There is also an option to adjust the start month of the biological year (i.e., ‘caribou year’), with a default of April. 
-Data are aggregated by biological year (not calendar year) prior to model fitting.
+Annual survival $\hat{S}(j)$ in the $j^{th}$ year is estimated as 
+$$\hat{S}(j) = \prod_{i=1}(\hat{S}_{i,j})$$
 
-By default Bayesian models use biologically reasonable, weakly informative priors. 
-Priors can be modified by the user. 
-By default, the Bayesian method saves 1,000 MCMC samples from each of three chains (after discarding the first halves). 
-The number of samples saved can be adjusted with the `niters` argument. 
-With `niters set`, the user can simply increment the thinning rate (`nthin`) as required to achieve convergence.
-Model convergence metrics, including ess (Effective Sample Size) and rhat, can be accessed with the `glance()` function. 
-For more information on convergence metrics see the [getting started vignette](https://poissonconsulting.github.io/bboutools/articles/bboutools.html).
+There is an option in both `bboutools` and `bbouretro` to include uncertain mortaliites in the total mortalities summed prior to model fitting. 
 
-### Recruitment
-Recruitment is estimated from composition surveys
-The adult female proportion can either be fixed or estimated from counts of cows and bulls 
+Recruitment is estimated from annual composition surveys of boreal caribou groups with methods following DeCesare et al. [-@decesare_estimating_2012] 
 
-$$Cows ~ Binomial(adult_female_proportion, Cows + Bulls))$$
+$$R_{\Delta} = \frac{X \cdot sex\_ratio}{1 + X \cdot sex\_ratio}$$
 
-The default behaviour is to fix adult female proportion at 0.65, which accounts for higher mortality of males (Smith 2004).
-The yearling and calf female proportion can also be adjusted. 
-The default value is 0.5.
+where $X \cdot sex\_ratio$ is the female calves per adult female and $R_{\Delta}$ accounts for recruitment of calves into the yearling/adult age class at the end of the caribou year.
 
-### Survival
-The annual survival in boreal caribou population is estimated from the monthly fates of collared adult females. 
-bboutools fits a Binomial monthly survival model to the number of collared females and mortalities. 
-There is an option to choose whether to include individuals with uncertain fates with the certain mortalities.
+Population growth ($\lambda$) is estimated using the basic Hatter-Bergerud method [@hatter_moose_1991].
 
-The survival model is always fit with a random intercept for each month
+$$\lambda = \frac{S}{1-R_\Delta}$$
 
-### Population growth
+Both `bboutools` and `bbouretro` allow the user to adjust the start month of the biological year.
+Data are aggregated by biological year prior to model fitting.
+
+A full comparison of Bayesian methods in `bboutools` and traditional frequentist methods of `bbouretro` is out of scope.
+However, a key difference is that `bboutools` methods are parametric and `bbouretro` methods are non-parametric. 
+Parametric methods assume that the data are drawn from a pre-defined statistical distribution, i.e., the binomial distribution in the case of survival and recruitment models. 
+Inference is based on the underlying statistical model, which allows for inference on statistical significance of model parameters. 
+For non-parametric approaches in `bbouretro`, which do not assume an underlying statistical model, estimates are based on simple ratios, with variances estimated using approximation formulas (survival) or bootstrap resampling methods. 
+
+Key advantages of the parametric approach are that:  
+- year can be modeled as a random effect, where parameter values are assumed to be drawn from a common underlying distribution and information is shared among years.  
+- models can include estimation of an underlying trend.  
+- uncertainty around survival estimates can be estimated in cases where there are 0 mortalities in a year; this is not possible using traditional methods.  
+- for models analyzed in a Bayesian framework, prior knowledge can be incorporated, which can be especially useful when data are sparse.  
+
+The `bboutools` approach uses heirarchical Generalized Linear Models to estimate survival and recruitment. 
+
+A survival model including a year random effect and trend takes the form
+$$d_{i,j} ~ Binomial(1 - \hat{S}_{i,j}, r_{i,j})$$
+$$logit(\hat{S}_{i,j}) = \beta_{0} + \alpha_{i} + \delta_{j} + \beta_{1} * Year_{j}$$  
+$$\alpha_i ~ Normal(0, \sigma_{\alpha})$$  
+$$\delta_j ~ Normal(0, \sigma_{\delta})$$ 
+
+where $d_{i,j}$ is the number of mortalities in the $i^{th}$ month and $j^{th}$ year, $r_{i,j}$ is the number of collared individuals at the start of the month, $\hat{S}_{i,j}$ is the survival probability, $\alpha_i$ is a monthly random effect, $\delta_i$ is an annual random effect and `\beta_{1}` represents the trend. 
+
+A recruitment model including random and trend takes the form
+$$Calves_{j} ~ Binomial(\delta[i], AdultFemales[i])$$
+$$logit(\delta_{j}) = \beta_{0} + \alpha_{j} + \beta_{1} * Year[i]$$
+$$\alpha_{j} ~ Normal(0, \sigma_{\alpha})$$
+$$FemaleYearlings_{j} ~ Binomial(sex_ratio, Yearlings_{j})$$
+$$Cows_{j} ~ Binomial(adult_female_proportion, CowsBulls_{j})$$
+$$AdultFemalesOther_{j} ~ Binomial(adulte_female_proportion, AdultsUnknown_{j})$$
+$$AdultFemales_{j} = FemaleYearlings_{j} + Cows_{j} + AdultFemalesOther_{j}$$
+
+where $\delta_{j}$ is the calves per adult female in the $j^{th}$ year, $\alpha_{j}$ is an annual random effect and $\beta_{1}$ represents the trend. 
+
+Groups are aggregated by year prior to model fitting to prevent the number of calves exceeding the number of cows.
+The sex ratio is fixed and can be adjusted by the user, with default of 0.5.
+The adult female proportion can be estimated from counts of cows and bulls or fixed, with a default of 0.65, which accounts for higher mortality of males (Smith 2004).
+The model includes demographic stochasticity.
+
+The models are identical for ML and Bayesian frameworks, although methods for parameter estimation differ and prior information can be incorporated in the Bayesian framework. 
+By default, `bboutools` uses uninformative priors and these can be adjusted by the user. 
+
+An [empirical comparison](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) of `bbouretro` and `bboutools` methods (i.e., on real data) showed that `bbouretro` methods yield similar results to Bayesian fixed-effects models with vague priors.
+As well, ML and Bayesian models yield similar results when priors are vague.
+Random effects models tend to differ from traditional/fixed effect models, with annual estimates pulled in toward the grand mean (figure...). 
+We would
+
+Simulating data (i.e., with `bbousims`) allows for comparison of various methods' ability to recover known parameter values. 
+[We compared](https://poissonconsulting.github.io/bbousuite/articles/simulations.html) `bbouretro` methods with `bboutools` Bayesian models with fixed or random year effects across 100 simulations, 20 years and 5 sample size scenarios (i.e., collared adult females, groups observed in hypothetical composition surveys). 
+
+TODO figure of comparison 
+
+In general, the Bayesian random effects model performed best. 
+This model had the lowest bias, especially at lower sample sizes (figure ). 
+
+As mentioned above, random effect models exhibit 'shrinkage', i.e., the sharing of information across years, which causes outlier estimates to be brought towards the grand mean [@kery_bayesian_2011]. 
+This is particularly true when underlying data are sparse.
+With higher sample size in each group (year), the difference between random and fixed effects models is diminished. 
+The simulation analysis demonstrates that the tendency to be skeptical of extreme values at low sample sizes is desirable, as these values are likely to result from the sampling process rather than represent the true values. 
+
+# Acknowledgements
+
+We acknowledge contributions from Alan Constant.
+Development of `bbousuite` was funded by the Province of Alberta and Environment and Climate Change Canada.
+
+# References
 
 
 
-
-
-## bbouretro
-
-The `bbouretro` R package contains functions to calculate survival [@pollock_survival_1989], recruitment [@decesare_estimating_2012] and population growth [@hatter_moose_1991] using the classical methods.
-
-
-
-## bbousims
-
-The `bbousims` R package allows users to simulate boreal caribou abundance over time from survival, ageing and birth processes. 
-
-## bboushiny
-
-The `bboushiny` R package is a R shiny app for estimating boreal caribou population growth using the Bayesian method from the `bboutools` package. 
-`bboushiny` gives non-R users a way to utilize the functions from the `bboutools` package. 
-
-## bbousuite
-
-The `bbousuite` R package facilitates installing and loading the other packages.
-
-# Example of use
 
 To load all the packages you can use `library(bbousuite)` or each package can be loaded individually such as `library(bboudata)`.
 
@@ -257,9 +286,9 @@ bboushiny::run_bbou_app()
 
 Additional examples and usage of each package can be on their websites. 
 
-# Acknowledgements
-
-We acknowledge contributions from Alan Constant.
-Development of `bbousuite` was funded by the Province of Alberta and Environment and Climate Change Canada.
-
-# References
+Models analyzed in a Bayesian framework use biologically reasonable, weakly informative priors by default.
+Priors can be modified by the user. 
+By default, the Bayesian method saves 1,000 MCMC samples from each of three chains (after discarding the first halves). 
+The number of samples saved can be adjusted. 
+The user can increment the thinning rate as required to achieve convergence, which is assessed using ess (Effective Sample Size) and rhat (TODO ref).
+# Example of use
