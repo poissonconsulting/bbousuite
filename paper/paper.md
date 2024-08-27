@@ -130,8 +130,6 @@ Groups are aggregated by year prior to model fitting.
 The sex ratio is fixed and can be adjusted by the user, with default of 0.5.
 The adult female proportion can be estimated from counts of cows and bulls or fixed, with a default of 0.65, which accounts for higher mortality of males [@smith_2004].
 
-Models are identical for ML and Bayesian frameworks, although methods for parameter estimation and interpretation of uncertainty differ, prior information can be incorporated in the Bayesian framework, and prediction of derived parameters with uncertainty (e.g., population growth) is not implemented for ML.
-
 We compared estimates from `bbouretro` and `bboutools` on [empirical](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) and [simulated](https://poissonconsulting.github.io/bbousuite/articles/simulations.html) data.
 
 Empirical comparisons demonstrate that `bbouretro` methods yield similar estimates to Bayesian fixed-effects models with uninformative priors (figure 2).
