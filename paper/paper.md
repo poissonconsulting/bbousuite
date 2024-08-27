@@ -140,10 +140,9 @@ This is explored in more detail below.
 ![](figures/methods-compare.png)  
 *<font size="-1">Figure 2. Comparison of traditional and Bayesian estimates of survival, recruitment and λ by year.</font>*
 
-Data simulation (i.e., with `bbousims`) allows for comparison of various methods' ability to recover known parameter values. 
-In [our analysis](https://poissonconsulting.github.io/bbousuite/articles/simulations.html), performance metrics include bias, precision (95% CI width) and coverage (i.e. proportion of 95% CI containing the true value).  
+Data simulation (i.e., with `bbousims`) allows for comparison of various methods' ability to recover known parameter values (i.e., with bias, precision, coverage). 
 
-In general, the Bayesian random effects model performed best. 
+Our analysis demonstrates that the Bayesian random effects model generally performs best. 
 For example, figure 3 shows the distribution of bias in estimates of population growth for 100 simulations, 20 years and 5 sample size scenarios.
 The random effects model has the smallest spread in bias, especially at lower sample sizes.
 
