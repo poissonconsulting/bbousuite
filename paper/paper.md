@@ -82,9 +82,9 @@ Recruitment is estimated from annual composition surveys following methods in De
 Population growth ($\lambda$) is estimated using the Hatter-Bergerud method [@hatter_moose_1991].
 Both `bboutools` and `bbouretro` allow the user to adjust the start month of the biological year and data are aggregated by biological year prior to model fitting.
 
-A full comparison of the statistical methods used in `bboutools` and `bbouretro` is beyond the scope of this paper.
-However, a key difference is that `bboutools` methods are parametric, whereas `bbouretro` methods are non-parametric. 
-Parametric methods assume that the data (sample) are drawn from a population which can be described by a statistical distribution, i.e., the binomial in the case of survival and recruitment models. 
+A full comparison of `bboutools` and `bbouretro` statistical methods is beyond the scope of this paper.
+A key difference is that `bboutools` methods are parametric, whereas `bbouretro` methods are non-parametric. 
+Parametric methods assume the data (sample) are drawn from a population which can be described by a statistical distribution, i.e., the binomial in the case of survival and recruitment models. 
 Inference is based on the underlying statistical model, which allows for inference on statistical significance of model parameters. 
 For non-parametric methods used in `bbouretro`, estimates are based on simple ratios, with variances estimated using approximation formulas (survival) or bootstrap resampling methods. 
 
@@ -130,24 +130,24 @@ Groups are aggregated by year prior to model fitting.
 The sex ratio is fixed and can be adjusted by the user, with default of 0.5.
 The adult female proportion can be estimated from counts of cows and bulls or fixed, with a default of 0.65, which accounts for higher mortality of males [@smith_2004].
 
-We compared estimates from `bbouretro` and `bboutools` on [empirical](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) and [simulated](https://poissonconsulting.github.io/bbousuite/articles/simulations.html) data.
+We compared estimates from `bbouretro` and `bboutools` on empirical and simulated data.
 
-Empirical comparisons demonstrate that `bbouretro` methods yield similar estimates to Bayesian fixed-effects models with uninformative priors (figure 2).
+[Empirical comparisons](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) demonstrate that `bbouretro` methods yield similar estimates to Bayesian fixed-effects models with uninformative priors (figure 2).
 By default, `bboutools` uses uninformative priors and these can be adjusted by the user. 
 Estimates from random effects models tend to be less extreme than traditional and fixed effect models.
 This is explored in more detail below.
 
 ![](figures/methods-compare.png)  
-*<font size="-1">Figure 2. Comparison of traditional and Bayesian estimates of survival, recruitment and λ by year.</font>*
+*<font size="-1">Figure 2. Comparison of traditional and Bayesian estimates of survival and recruitment by year.</font>*
 
 Data simulation (i.e., with `bbousims`) allows for comparison of various methods' ability to recover known parameter values (i.e., with bias, precision, coverage). 
 
-Our analysis demonstrates that the Bayesian random effects model generally performs best. 
-For example, figure 3 shows the distribution of bias in estimates of population growth for 100 simulations, 20 years and 5 sample size scenarios.
+[Our analysis](https://poissonconsulting.github.io/bbousuite/articles/simulations.html) demonstrates that the Bayesian random effects model generally performs best. 
+For example, figure 3 shows the distribution of bias in point estimates of population growth for 100 simulations and 20 years, by sample size and statistical method.
 The random effects model has the smallest spread in bias, especially at lower sample sizes.
 
 ![](figures/lambda-bias.png)
-*<font size="-1">Figure 3. Bias (% difference) in annual survival point estimates and known survival for 100 simulations and 20 years, by sample size and statistical method.</font>*
+*<font size="-1">Figure 3. Bias (% difference) in annual population growth point estimates and known population growth for 100 simulations and 20 years, by sample size and statistical method.</font>*
 
 Random effect models exhibit 'shrinkage', which causes more extreme estimates to be pulled towards the grand mean, especially when underlying data are sparse [@kery_bayesian_2011].
 With higher sample size in each group, the difference between random and fixed effects model estimates is diminished. 
