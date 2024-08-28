@@ -48,15 +48,14 @@ The `bbou` suite is a set of R packages [@r_core_team_2023] to facilitate simula
 It consists of:  
 - [`bboudata`](https://poissonconsulting.github.io/bboudata/), a collection of simulated and anonymized empirical survival and recruitment datasets.  
 - [`bboutools`](https://poissonconsulting.github.io/bboutools/), tools to estimate population growth in a Bayesian or Maximum Likelihood (ML) framework, implemented under the hood using the `Nimble` R package [@de_valpine_programming_2017].  
-- [`bboushiny`](https://poissonconsulting.github.io/bboushiny/), a Graphical User Interface (GUI) to `bboutools` (Figure 1).    
+- [`bboushiny`](https://poissonconsulting.github.io/bboushiny/), a Graphical User Interface (GUI) to `bboutools` (\autoref{fig:bboushiny}).    
 - [`bbouretro`](https://poissonconsulting.github.io/bbouretro/), tools to estimate population growth using traditional frequentist methods.  
 - [`bbousims`](https://poissonconsulting.github.io/bbousims/), tools to simulate survival and recruitment data from hypothetical collaring and composition surveys.  
 
 Each R package has a website with function documentation and a 'Get Started' guide.
 There are also several vignettes, including on `bboutools` [analytical methods](https://poissonconsulting.github.io/bboutools/articles/methods.html) and [prior selection](https://poissonconsulting.github.io/bboutools/articles/priors.html); `bbouretro` [analytical methods](https://poissonconsulting.github.io/bbouretro/articles/retro-methods.html); using [`bbousims` with `bboutools`](https://poissonconsulting.github.io/bbousims/articles/bboutools.html); and comparison of Bayesian and traditional method estimates with [empirical](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) and [simulated](https://poissonconsulting.github.io/bbousuite/articles/simulations.html) data. 
 
-![](figures/bboushiny-survival.png)
-*<font size="-1">Figure 1. bboushiny GUI.</font>*
+![bboushiny GUI. \label{fig:bboushiny}](figures/bboushiny-survival.png)
 
 # Statement of need
 
@@ -132,21 +131,19 @@ The adult female proportion can be estimated from counts of cows and bulls or fi
 
 We compared estimates from `bbouretro` and `bboutools` on empirical and simulated data.
 
-[Empirical comparisons](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) demonstrate that `bbouretro` methods yield similar estimates to Bayesian fixed-effects models with uninformative priors (Figure 2).
+[Empirical comparisons](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) demonstrate that `bbouretro` methods yield similar estimates to Bayesian fixed-effects models with uninformative priors (\autoref{fig:empirical}).
 By default, `bboutools` uses uninformative priors and these can be adjusted by the user. 
 Estimates from random effects models tend to be less extreme than traditional and fixed effect models.
 This is explored in more detail below.
 
-![](figures/methods-compare.png)  
-*<font size="-1">Figure 2. Comparison of traditional and Bayesian estimates of survival and recruitment by year.</font>*
+![Comparison of traditional and Bayesian estimates of survival and recruitment by year.\label{fig:empirical}](figures/methods-compare.png)  
 
 Data simulation (i.e., with `bbousims`) allows for comparison of various methods' ability to recover known parameter values (i.e., with bias, precision, coverage). 
 
 [Our analysis](https://poissonconsulting.github.io/bbousuite/articles/simulations.html) demonstrates that the Bayesian random effects model generally performs best. 
-For example, a comparison of the distribution of bias in point estimates of population growth for 100 simulations and 20 years shows that the random effects model has the smallest spread in bias, especially at lower sample sizes (Figure 3).
+For example, a comparison of the distribution of bias in point estimates of population growth for 100 simulations and 20 years shows that the random effects model has the smallest spread in bias, especially at lower sample sizes (\autoref{fig:bias}).
 
-![](figures/lambda-bias.png)
-*<font size="-1">Figure 3. Bias (% difference) in annual population growth point estimates and known population growth for 100 simulations and 20 years, by sample size and statistical method.</font>*
+![Bias (% difference) in annual population growth point estimates and known population growth for 100 simulations and 20 years, by sample size and statistical method.\label{fig:bias}](figures/lambda-bias.png)
 
 Random effect models exhibit 'shrinkage', which causes more extreme estimates to be pulled towards the grand mean, especially when underlying data are sparse [@kery_bayesian_2011].
 With higher sample size in each group, the difference between random and fixed effects model estimates is diminished. 
