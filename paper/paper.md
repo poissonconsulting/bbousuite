@@ -48,7 +48,7 @@ The `bbou` suite is a set of R packages [@r_core_team_2023] to facilitate simula
 It consists of:  
 - [`bboudata`](https://poissonconsulting.github.io/bboudata/), a collection of simulated and anonymized empirical survival and recruitment datasets.  
 - [`bboutools`](https://poissonconsulting.github.io/bboutools/), tools to estimate population growth in a Bayesian or Maximum Likelihood (ML) framework, implemented under the hood using the `Nimble` R package [@de_valpine_programming_2017].  
-- [`bboushiny`](https://poissonconsulting.github.io/bboushiny/), a Graphical User Interface (GUI) to `bboutools` (figure 1).    
+- [`bboushiny`](https://poissonconsulting.github.io/bboushiny/), a Graphical User Interface (GUI) to `bboutools` (Figure 1).    
 - [`bbouretro`](https://poissonconsulting.github.io/bbouretro/), tools to estimate population growth using traditional frequentist methods.  
 - [`bbousims`](https://poissonconsulting.github.io/bbousims/), tools to simulate survival and recruitment data from hypothetical collaring and composition surveys.  
 
@@ -132,7 +132,7 @@ The adult female proportion can be estimated from counts of cows and bulls or fi
 
 We compared estimates from `bbouretro` and `bboutools` on empirical and simulated data.
 
-[Empirical comparisons](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) demonstrate that `bbouretro` methods yield similar estimates to Bayesian fixed-effects models with uninformative priors (figure 2).
+[Empirical comparisons](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) demonstrate that `bbouretro` methods yield similar estimates to Bayesian fixed-effects models with uninformative priors (Figure 2).
 By default, `bboutools` uses uninformative priors and these can be adjusted by the user. 
 Estimates from random effects models tend to be less extreme than traditional and fixed effect models.
 This is explored in more detail below.
@@ -143,8 +143,7 @@ This is explored in more detail below.
 Data simulation (i.e., with `bbousims`) allows for comparison of various methods' ability to recover known parameter values (i.e., with bias, precision, coverage). 
 
 [Our analysis](https://poissonconsulting.github.io/bbousuite/articles/simulations.html) demonstrates that the Bayesian random effects model generally performs best. 
-For example, figure 3 shows the distribution of bias in point estimates of population growth for 100 simulations and 20 years, by sample size and statistical method.
-The random effects model has the smallest spread in bias, especially at lower sample sizes.
+For example, a comparison of the distribution of bias in point estimates of population growth for 100 simulations and 20 years shows that the random effects model has the smallest spread in bias, especially at lower sample sizes (Figure 3).
 
 ![](figures/lambda-bias.png)
 *<font size="-1">Figure 3. Bias (% difference) in annual population growth point estimates and known population growth for 100 simulations and 20 years, by sample size and statistical method.</font>*
