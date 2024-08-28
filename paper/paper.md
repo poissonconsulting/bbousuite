@@ -129,7 +129,7 @@ Groups are aggregated by year prior to model fitting.
 The sex ratio is fixed and can be adjusted by the user, with default of 0.5.
 The adult female proportion can be estimated from counts of cows and bulls or fixed, with a default of 0.65, which accounts for higher mortality of males [@smith_2004].
 
-We compared estimates from `bbouretro` and `bboutools` on empirical and simulated data.
+We compared estimates from `bbouretro` and `bboutools` on anonymized empirical and simulated data.
 
 [Empirical comparisons](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) demonstrate that `bbouretro` methods yield similar estimates to Bayesian fixed-effects models with uninformative priors (\autoref{fig:empirical}).
 By default, `bboutools` uses uninformative priors and these can be adjusted by the user. 
