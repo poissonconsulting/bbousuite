@@ -106,7 +106,7 @@ Namely, the sharing of information across years by random effects estimates caus
 For example, the lowest estimate of survival (0.6) was based on a mean sample size of 7.2 collars monitored per year.
 
 ```{r out.width = '100%', echo = FALSE}
-knitr::include_graphics("figures/fig1.png")
+knitr::include_graphics("figures/Fig1.png")
 ```
 *<font size="-1">Fig. 1: Comparison of traditional and Bayesian estimates of survival, recruitment and λ.</font>*
 
