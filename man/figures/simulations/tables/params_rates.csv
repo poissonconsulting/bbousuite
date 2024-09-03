@@ -1,0 +1,14 @@
+Parameter,Value
+Survival Adult Female Intercept,0.86
+Survival Adult Female Annual SD,0.35
+Survival Adult Female Month SD,0.1
+Survival Adult Female Annual within Month SD,0.01
+Survival Adult Female Trend,0
+Survival Calf Female Intercept,0.5
+Survival Calf Female Annual SD,0.35
+Survival Calf Female Month SD,0.1
+Survival Calf Female Annual within Month SD,0.01
+Survival Calf Female Trend,0
+Calves per Adult Female Intercept,0.7
+Calves per Adult Female Intercept Annual SD,0
+Calves per Adult Female Trend,0

@@ -106,7 +106,7 @@ Namely, the sharing of information across years by random effects estimates caus
 For example, the lowest estimate of survival (0.6) was based on a mean sample size of 7.2 collars monitored per year.
 
 ```{r out.width = '100%', echo = FALSE}
-knitr::include_graphics("figures/Fig1.bmp")
+knitr::include_graphics("figures/Fig1.png")
 ```
 *<font size="-1">Fig. 1: Comparison of traditional and Bayesian estimates of survival, recruitment and λ.</font>*
 
@@ -115,7 +115,7 @@ Most notable are difference in 1990 and 1991 where collar sample sizes were lowe
 However, all methods follow the general temporal trends in estimates.
 
 ```{r out.width = '100%', echo = FALSE}
-knitr::include_graphics("figures/Fig2.bmp")
+knitr::include_graphics("figures/Fig2.png")
 ```
 *<font size="-1">Fig. 2: Comparison of traditional and Bayesian estimates of survival, recruitment and λ by year.</font>*
 
@@ -123,7 +123,7 @@ Of additional interest is the relative precision of estimates as indicated by th
 A comparison of traditional and Bayesian fixed and random effects reveals higher estimated precision for random effect estimators whereas estimated precision of fixed effect and traditional approaches is relatively similar (Figure 3).
 
 ```{r out.width = '100%', echo = FALSE}
-knitr::include_graphics("figures/Fig3.bmp")
+knitr::include_graphics("figures/Fig3.png")
 ```
 *<font size="-1">Fig. 3: Relative estimated precision of traditional, random and fixed effects methods.  Precision is indexed by the width of the confidence limit divided by the estimate.</font>*
 
@@ -133,7 +133,7 @@ This comparison reveals how traditional and Bayesian fixed effects are more infl
 When sample sizes a larger range of survival rates result including unrealistically low or high estimates with traditional and fixed effects models.
 
 ```{r out.width = '100%', echo = FALSE}
-knitr::include_graphics("figures/Fig4.bmp")
+knitr::include_graphics("figures/Fig4.png")
 ```
 *<font size="-1">Fig. 4: Comparison of the effect of mean collars monitored on point estimates of survival from traditional and Bayesian random and fixed effect estimators.</font>*
 
@@ -141,7 +141,7 @@ Relative precision of estimates is also influenced by sample size of collars wit
 Differences in estimated precision for fixed effects and traditional models are partially caused by fixed effects models estimating a confidence limit when survival estimates are 1 (no deaths).
 
 ```{r out.width = '100%', echo = FALSE}
-knitr::include_graphics("figures/Fig5.bmp")
+knitr::include_graphics("figures/Fig5.png")
 ```
 
 *<font size="-1">Fig. 5: Comparison of the effect of mean collars monitored on point estimates of survival from traditional and Bayesian random and fixed effect estimators.</font>*
