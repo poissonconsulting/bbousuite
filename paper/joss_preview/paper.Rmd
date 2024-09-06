@@ -61,7 +61,7 @@ It consists of:
 Each R package has a website with function documentation and a 'Get Started' guide.
 There are also several vignettes, including on `bboutools` [analytical methods](https://poissonconsulting.github.io/bboutools/articles/methods.html) and [prior selection](https://poissonconsulting.github.io/bboutools/articles/priors.html); `bbouretro` [analytical methods](https://poissonconsulting.github.io/bbouretro/articles/retro-methods.html); using [`bbousims` with `bboutools`](https://poissonconsulting.github.io/bbousims/articles/bboutools.html); and comparison of Bayesian and traditional method estimates with [empirical](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) and [simulated](https://poissonconsulting.github.io/bbousuite/articles/simulations.html) data. 
 
-![bboushiny GUI. \label{fig:bboushiny}](figures/bboushiny-survival.png)
+![A screenshot of the bboushiny GUI. \label{fig:bboushiny}](figures/bboushiny-survival.png)
 
 # Statement of need
 
