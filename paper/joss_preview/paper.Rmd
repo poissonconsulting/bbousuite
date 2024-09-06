@@ -151,7 +151,7 @@ For example, a plot of the of bias in point estimates of population growth for 1
 
 ![Bias (% difference) in annual population growth point estimates and known population growth for 100 simulations and 20 years, by sample size and statistical method.\label{fig:bias}](figures/lambda-bias.png)
 
-Random effect models exhibit 'shrinkage', which causes more extreme estimates to be pulled towards the grand mean, especially when underlying data are sparse [@kery_bayesian_2011].
+Random effect models exhibit 'shrinkage', which causes more extreme estimates to be pulled towards the group mean, especially when underlying data are sparse [@kery_bayesian_2011].
 With higher sample size in each group, the difference between random and fixed effects model estimates is diminished. 
 The simulation analysis demonstrates that the tendency to be skeptical of extreme values at low sample sizes is desirable, as these values are likely to result from the sampling process rather than represent the true values. 
 
