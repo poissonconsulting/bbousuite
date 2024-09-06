@@ -139,7 +139,7 @@ We compared estimates from `bbouretro` and `bboutools` on anonymized empirical a
 
 [Empirical comparisons](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) demonstrate that `bbouretro` methods yield similar estimates to Bayesian fixed-effects models with uninformative priors (\autoref{fig:empirical}).
 By default, `bboutools` uses uninformative priors and these can be adjusted by the user. 
-Estimates from random effects models tend to be less extreme than traditional and fixed effect models.
+Estimates from random effects models tend to be provide more reliable estimates than traditional and fixed effect models.
 This is explored in more detail below.
 
 ![Comparison of traditional and Bayesian estimates of survival and recruitment by year.\label{fig:empirical}](figures/methods-compare.png)  
