@@ -142,7 +142,7 @@ By default, `bboutools` uses uninformative priors and these can be adjusted by t
 Estimates from random effects models tend to be provide more reliable estimates than traditional and fixed effect models.
 This is explored in more detail below.
 
-![Comparison of traditional and Bayesian estimates of survival and recruitment by year.\label{fig:empirical}](figures/methods-compare.png)  
+![Comparison of traditional and Bayesian estimates of survival and recruitment by year. The bars represent 95% confidence/credible intervals.\label{fig:empirical}](figures/methods-compare.png)  
 
 Data simulation (i.e., with `bbousims`) allows for comparison of various methods' ability to recover known parameter values (i.e., with bias, precision, coverage). 
 
