@@ -147,7 +147,7 @@ This is explored in more detail below.
 Data simulation (i.e., with `bbousims`) allows for comparison of various methods' ability to recover known parameter values (i.e., with bias, precision, coverage). 
 
 [Our analysis](https://poissonconsulting.github.io/bbousuite/articles/simulations.html) demonstrates that the Bayesian random effects model generally performs best. 
-For example, a comparison of the distribution of bias in point estimates of population growth for 100 simulations and 20 years shows that the random effects model has the smallest spread in bias, especially at lower sample sizes (\autoref{fig:bias}).
+For example, a plot of the of bias in point estimates of population growth for 100 simulations and 20 years shows that the random effects model has the greatest precision, especially at lower sample sizes (\autoref{fig:bias}).
 
 ![Bias (% difference) in annual population growth point estimates and known population growth for 100 simulations and 20 years, by sample size and statistical method.\label{fig:bias}](figures/lambda-bias.png)
 
