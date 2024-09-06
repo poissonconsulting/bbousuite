@@ -44,7 +44,7 @@ tags:
 
 # Summary
 
-Although many animal populations are managed based on their abundance [@williams_analysis_2002], reliable abundance estimates can be impractical to obtain for mobile herding populations with large ranges such as boreal caribou (*Rangifer tarandus caribou*).
+Although many animal populations are managed based on their abundance [@williams_analysis_2002], reliable abundance estimates can be difficult to obtain for mobile herding populations with large ranges such as boreal caribou (*Rangifer tarandus caribou*).
 Consequently, such populations are commonly managed based on their population growth rate ($\lambda$), which can be estimated from the population recruitment and adult female survival rates [@hatter_moose_1991]. 
 
 The `bbou` suite is a set of R packages [@r_core_team_2023] to facilitate simulation and analysis of boreal caribou survival and recruitment data to estimate population growth.  
