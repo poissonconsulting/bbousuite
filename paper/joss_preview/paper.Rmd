@@ -44,8 +44,10 @@ tags:
 
 # Summary
 
-Although many animal populations are managed based on their abundance [@williams_analysis_2002], reliable abundance estimates can be impractical to obtain for mobile herding populations with large ranges such as boreal caribou (*Rangifer tarandus caribou*).
-Consequently, such populations are commonly managed based on their population growth rate ($\lambda$), which can be estimated from the population recruitment and adult female survival rates [@hatter_moose_1991]. 
+Although many animal populations are managed based on their abundance [@williams_analysis_2002], reliable abundance estimates can be difficult to obtain for mobile herding populations with large ranges such as boreal caribou (*Rangifer tarandus caribou*).
+Consequently, such populations are commonly managed based on their population growth rate ($\lambda$), which can be estimated from the population recruitment ($R$) and adult female survival ($S$) rates [@hatter_moose_1991] using the following equation. 
+
+$$\lambda = \frac{S}{1- R}$$
 
 The `bbou` suite is a set of R packages [@r_core_team_2023] to facilitate simulation and analysis of boreal caribou survival and recruitment data to estimate population growth.  
 
@@ -59,7 +61,7 @@ It consists of:
 Each R package has a website with function documentation and a 'Get Started' guide.
 There are also several vignettes, including on `bboutools` [analytical methods](https://poissonconsulting.github.io/bboutools/articles/methods.html) and [prior selection](https://poissonconsulting.github.io/bboutools/articles/priors.html); `bbouretro` [analytical methods](https://poissonconsulting.github.io/bbouretro/articles/retro-methods.html); using [`bbousims` with `bboutools`](https://poissonconsulting.github.io/bbousims/articles/bboutools.html); and comparison of Bayesian and traditional method estimates with [empirical](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) and [simulated](https://poissonconsulting.github.io/bbousuite/articles/simulations.html) data. 
 
-![bboushiny GUI. \label{fig:bboushiny}](figures/bboushiny-survival.png)
+![A screenshot of the bboushiny GUI. \label{fig:bboushiny}](figures/bboushiny-survival.png)
 
 # Statement of need
 
@@ -137,19 +139,19 @@ We compared estimates from `bbouretro` and `bboutools` on anonymized empirical a
 
 [Empirical comparisons](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) demonstrate that `bbouretro` methods yield similar estimates to Bayesian fixed-effects models with uninformative priors (\autoref{fig:empirical}).
 By default, `bboutools` uses uninformative priors and these can be adjusted by the user. 
-Estimates from random effects models tend to be less extreme than traditional and fixed effect models.
+Estimates from random effects models tend to be provide more reliable estimates than traditional and fixed effect models.
 This is explored in more detail below.
 
-![Comparison of traditional and Bayesian estimates of survival and recruitment by year.\label{fig:empirical}](figures/methods-compare.png)  
+![Comparison of traditional and Bayesian estimates of survival and recruitment by year. The bars represent 95% confidence/credible intervals.\label{fig:empirical}](figures/methods-compare.png)  
 
 Data simulation (i.e., with `bbousims`) allows for comparison of various methods' ability to recover known parameter values (i.e., with bias, precision, coverage). 
 
 [Our analysis](https://poissonconsulting.github.io/bbousuite/articles/simulations.html) demonstrates that the Bayesian random effects model generally performs best. 
-For example, a comparison of the distribution of bias in point estimates of population growth for 100 simulations and 20 years shows that the random effects model has the smallest spread in bias, especially at lower sample sizes (\autoref{fig:bias}).
+For example, a plot of the of bias in point estimates of population growth for 100 simulations and 20 years shows that the random effects model has the greatest precision, especially at lower sample sizes (\autoref{fig:bias}).
 
 ![Bias (% difference) in annual population growth point estimates and known population growth for 100 simulations and 20 years, by sample size and statistical method.\label{fig:bias}](figures/lambda-bias.png)
 
-Random effect models exhibit 'shrinkage', which causes more extreme estimates to be pulled towards the grand mean, especially when underlying data are sparse [@kery_bayesian_2011].
+Random effect models exhibit 'shrinkage', which causes more extreme estimates to be pulled towards the group mean, especially when underlying data are sparse [@kery_bayesian_2011].
 With higher sample size in each group, the difference between random and fixed effects model estimates is diminished. 
 The simulation analysis demonstrates that the tendency to be skeptical of extreme values at low sample sizes is desirable, as these values are likely to result from the sampling process rather than represent the true values. 
 
