@@ -151,7 +151,7 @@ Random effect models exhibit 'shrinkage', which causes more extreme estimates to
 With higher sample size in each group, the difference between random and fixed effects model estimates is diminished. 
 The simulation analysis demonstrates that the tendency to be skeptical of extreme values at low sample sizes is desirable, as these values are likely to result from the sampling process rather than represent the true values. 
 
-The Bayesian methods in `bboutools` are proposed as a standardized method for comparing estimates across jurisdictions.  
+The Bayesian methods in `bboutools` are proposed as a standardized method for comparing estimates across jurisdictions.
 In particular, the random effects model is recommended by default when there are $\geq$ 5 years of data [@kery_bayesian_2011]. 
 
 # Acknowledgements
