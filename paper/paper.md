@@ -132,8 +132,8 @@ The adult female proportion can be estimated from counts of cows and bulls or fi
 We compared estimates from `bbouretro` and `bboutools` on anonymized empirical and simulated data.
 
 [Empirical comparisons](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html) demonstrate that `bbouretro` methods yield similar estimates to Bayesian fixed-effects models with uninformative priors (\autoref{fig:empirical}).
-By default, `bboutools` uses uninformative priors and these can be adjusted by the user. 
-Estimates from random effects models tend to be less extreme than traditional and fixed effect models.
+By default, `bboutools` uses uninformative priors (see [here](https://poissonconsulting.github.io/bboutools/articles/priors.html)) and these can be adjusted by the user. 
+Estimates from random effects models tend to be less noisy than traditional and fixed effect models.
 This is explored in more detail below.
 
 ![Comparison of traditional and Bayesian estimates of survival and recruitment by year.\label{fig:empirical}](figures/methods-compare.png)  
@@ -154,7 +154,7 @@ In particular, the random effects model is recommended by default when there are
 
 # Acknowledgements
 
-We acknowledge contributions from Alan Constant.
+We acknowledge contributions from Alan Constant, Sarah Lyons, Colton Stephens and Nicole Hill.
 Development of `bbousuite` was funded by the Province of Alberta and Environment and Climate Change Canada.
 
 # References
