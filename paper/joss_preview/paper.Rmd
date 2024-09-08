@@ -160,7 +160,7 @@ In particular, the random effects model is recommended by default when there are
 
 # Acknowledgements
 
-We acknowledge contributions from Alan Constant.
+We acknowledge contributions from Alan Constant, Sarah Lyons, Colton Stephens and Nicole Hill.
 Development of `bbousuite` was funded by the Province of Alberta and Environment and Climate Change Canada.
 
 # References
