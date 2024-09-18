@@ -70,7 +70,7 @@ Each jurisdiction has their own monitoring program responsible for boreal caribo
 Numerous methods have been used to estimate population growth, which can make cross-jurisdictional conversations on the health of the species complex. 
 
 The suite of R packages in `bbousuite` aim to address this problem.
-`bboutools` provides a standardized methodology with simple, general models and sensible defaults for estimating survival, recruitment and population growth that can be compared across jurisdictions.
+`bboutools` provides a standardized methodology with simple, general models and reasonable defaults for estimating survival, recruitment and population growth values that can be compared across jurisdictions.
 In addition, `bboushiny` provides access to `bboutools` functionality in a GUI; `bbouretro` facilitates comparison with traditional methods; and `bbousims` facilitates comparison of various methods' ability to recover known parameter values from simulated data. 
 
 There is an existing web-based application for estimating boreal caribou population growth rate [@eacker_webbased_2019]. 
