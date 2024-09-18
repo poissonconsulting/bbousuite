@@ -84,7 +84,7 @@ However, the primary goal of these tools is to forecast boreal caribou populatio
 Despite key methodological differences, which are explained in more detail below, `bboutools` and `bbouretro` use the same underlying equations to estimate survival, recruitment and population growth. 
 Survival is estimated from the monthly fate of collared adult females using the staggered entry Kaplan-Meier method [@pollock_survival_1989], with an option to include uncertain mortalites in the total monthly mortalities summed prior to model fitting. 
 Recruitment is estimated from annual composition surveys following methods in DeCesare et al. [-@decesare_estimating_2012], where the adjusted recruitment accounts for recruitment of calves into the yearling/adult age class at the end of the caribou year.
-Population growth ($\lambda$) is estimated using the Hatter-Bergerud method [@hatter_moose_1991].
+Population growth ($\lambda$) is estimated using the Hatter-Bergerud equation [@hatter_moose_1991] presented above.
 Both `bboutools` and `bbouretro` allow the user to adjust the start month of the biological year and data are aggregated by biological year prior to model fitting.
 
 A full comparison of `bboutools` and `bbouretro` statistical methods is beyond the scope of this paper.
