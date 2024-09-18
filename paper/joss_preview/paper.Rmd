@@ -74,7 +74,7 @@ The suite of R packages in `bbousuite` aim to address this problem.
 In addition, `bboushiny` provides access to `bboutools` functionality in a GUI; `bbouretro` facilitates comparison with traditional methods; and `bbousims` facilitates comparison of various methods' ability to recover known parameter values from simulated data. 
 
 There is an existing web-based application for estimating boreal caribou population growth rate [@eacker_webbased_2019]. 
-However, users reported that it was difficult to use, especially if not familiar with Bayesian statistics, and had too many options to be considered a standarized method.  
+However, users reported that it had too many options to be considered a standarized method.  
 
 The `caribouMetrics` R package, and associated shiny app `BayesianCaribouDemographicProjection`, also have functionality to estimate boreal caribou demographic parameters.  
 However, the primary goal of these tools is to forecast boreal caribou population under different monitoring and disturbance scenarios [@dyson_2022].
