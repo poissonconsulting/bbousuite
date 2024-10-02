@@ -27,7 +27,7 @@ affiliations:
   name: Integrated Ecological Research, Canada
 - index: 3
   name: Province of Alberta, Canada
-date: 2 May 2024
+date: 2 October 2024
 bibliography: paper.bib
 output: 
   rticles::joss_article: default
@@ -52,6 +52,7 @@ $$\lambda = \frac{S}{1- R}$$
 The `bbou` suite is a set of R packages [@r_core_team_2023] to facilitate simulation and analysis of boreal caribou survival and recruitment data to estimate population growth.  
 
 It consists of:  
+
 - [`bboudata`](https://poissonconsulting.github.io/bboudata/), a collection of simulated and anonymized empirical survival and recruitment datasets.  
 - [`bboutools`](https://poissonconsulting.github.io/bboutools/), a set of functions to estimate population growth in a Bayesian or Maximum Likelihood (ML) framework, implemented under the hood using the `Nimble` R package [@de_valpine_programming_2017].  
 - [`bboushiny`](https://poissonconsulting.github.io/bboushiny/), a Graphical User Interface (GUI) to `bboutools` (\autoref{fig:bboushiny}).    
@@ -78,7 +79,7 @@ We consider `bbousuite` to be an evolution of this application.
 The methods used are similar, but the `bboushiny` GUI is more user-friendly and `bboutools`, `bbouretro` and `bbousims` R packages provide more fine-grained control of analyses and the ability to compare methods. 
 
 
-The `caribouMetrics` R package, and [associated shiny application](https://github.com/LandSciTech/BayesianCaribouDemographicProjection) have some overlapping functionality.  
+The `caribouMetrics` R package and [associated shiny application](https://github.com/LandSciTech/BayesianCaribouDemographicProjection) also have overlapping functionality.  
 However, the primary goal of these tools is to forecast boreal caribou population under different monitoring and disturbance scenarios [@dyson_2022].
 
 # Overview of methods
