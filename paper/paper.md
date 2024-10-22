@@ -1,25 +1,36 @@
 ---
-title: 'bbousuite: A set of R packages to facilitate analysis of Boreal Caribou survival and recruitment data'
+title: 'bbousuite: A set of R packages to facilitate analysis of Boreal Caribou survival
+  and recruitment data'
 authors:
 - name: Seb Dalgarno
-  orcid: 0000-0002-3658-4517
+  orcid: "0000-0002-3658-4517"
   corresponding: true
   affiliation: 1
 - name: John Boulanger
-  orcid: 0000-0001-8222-1445
+  orcid: "0000-0001-8222-1445"
   affiliation: 2
 - name: Ayla Pearson
-  orcid: 0000-0001-7388-1222
+  orcid: "0000-0001-7388-1222"
   affiliation: 1
 - name: Joe Thorley
-  orcid: 0000-0002-7683-4592
+  orcid: "0000-0002-7683-4592"
   affiliation: 1
-- name: Troy Hegel  
+- name: Troy Hegel
   affiliation: 3
 - name: Barry Nobert
   affiliation: 3
 - name: Dave Hervieux
   affiliation: 3
+date: "2 October 2024"
+output: word_document
+bibliography: paper.bib
+tags:
+- boreal caribou
+- Bayesian
+- maximum likelihood
+- survival
+- recruitment
+- population growth
 affiliations:
 - index: 1
   name: Poisson Consulting, Canada
@@ -27,15 +38,6 @@ affiliations:
   name: Integrated Ecological Research, Canada
 - index: 3
   name: Province of Alberta, Canada
-date: 2 October 2024
-bibliography: paper.bib
-tags:
-  - boreal caribou
-  - Bayesian
-  - maximum likelihood
-  - survival
-  - recruitment
-  - population growth
 ---
 
 # Summary
@@ -45,7 +47,7 @@ Consequently, such populations are commonly managed based on their population gr
 
 $$\lambda = \frac{S}{1- R}$$
 
-The `bbou` suite is a set of R packages [@r_core_team_2023] to facilitate simulation and analysis of boreal caribou survival and recruitment data to estimate population growth.  
+The `bbou` suite is a set of R packages [@r_core_team_2024] to facilitate simulation and analysis of boreal caribou survival and recruitment data to estimate population growth.  
 
 It consists of:  
 
