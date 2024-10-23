@@ -9,6 +9,7 @@
 .httr-oauth
 
 *.html
+*.pdf
 
 docs/
 inst/docs/
