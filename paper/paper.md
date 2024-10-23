@@ -69,7 +69,7 @@ Each jurisdiction is responsible for monitoring their respective boreal caribou 
 Numerous methods have been used to estimate population growth, which can make cross-jurisdictional conversations on the status of the species complex. 
 
 The set of R packages in `bbousuite` aim to address this challenge.
-`bboutools` provides a standardized methodology with simple, general models and reasonable defaults for estimating survival, recruitment and population growth that can be compared across jurisdictions.
+`bboutools` provides a standardized methodology with simple, general models and reasonable defaults for estimating survival, recruitment, and population growth that can be compared across jurisdictions.
 In addition, `bboushiny` provides access to `bboutools` functionality in a GUI; `bbouretro` facilitates comparison with traditional methods; and `bbousims` facilitates comparison of various methods' ability to recover known parameter values from simulated data. 
 
 There is an existing web-based application for estimating boreal caribou population growth rate [@eacker_webbased_2019]. 
@@ -103,7 +103,7 @@ Recruitment is estimated from annual aerial composition surveys.
 
 `bbouretro` follows methods in DeCesare et al. [-@decesare_estimating_2012]. See [here](https://poissonconsulting.github.io/bbouretro/articles/retro-methods.html#recruitment-r) for more details. 
 
-`bboutools` uses a GLMM approach. A recruitment model including annual random effect and trend takes the form
+`bboutools` uses a GLMM approach. A recruitment model including annual random effect and trend takes the form:
 $$
 \begin{aligned}
 Calves_{j} & \sim \text{Binomial}(X_{j}, AdultFemales_{j}) \\
@@ -138,6 +138,7 @@ A full comparison of `bboutools` and `bbouretro` statistical methods is beyond t
 - `bboutools` models can include an underlying trend.  
 
 In addition, with `bboutools` models fit in a Bayesian framework:  
+
 - models can incorporate prior knowledge, which is especially useful when data are sparse.  
 - posterior distributions of parameters can be combined to produce derived parameters (e.g., population growth) with full information about uncertainty retained.  
 
