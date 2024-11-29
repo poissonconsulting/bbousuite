@@ -109,7 +109,7 @@ We suspect that this is caused by higher precision leading to a higher tendency 
 
 The growth predictions are derived from the recruitment and survival estimates and thus, it is unsurprising that the Bayesian random effects model performed best. 
 
-The Bayesian random effects model exhibits 'shrinkage', i.e., a tendency for estimates to be pulled in toward the mean. 
-This simulation analysis demonstrates that this behaviour is desirable as the random effects model tends to be more skeptical of extreme values. 
+A consequence of modeling year as a random effect is that individual estimates are pulled in toward the grand mean, especially when estimates have low precision or are more extreme [@kery_bayesian_2011].
+This simulation analysis demonstrates that this 'shrinkage' is desirable as the random effects model tends to be more skeptical of extreme values. 
 Extreme values are likely to result from the sampling process rather than the ecological processes, especially at low sample sizes.
 
