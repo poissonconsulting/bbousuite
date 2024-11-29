@@ -21,8 +21,8 @@ authors:
   affiliation: 3
 - name: Dave Hervieux
   affiliation: 3
-date: "2 October 2024"
-output: word_document
+date: "28 November 2024"
+output: html_document
 bibliography: paper.bib
 tags:
 - boreal caribou
