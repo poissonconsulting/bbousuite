@@ -1,6 +1,6 @@
 Package: bbousuite
 Title: Easily Install and Load `bbou` (Boreal cariBOU) Packages
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: c(
     person("Seb", "Dalgarno", , "seb@poissonconsulting.ca", role = "aut",
            comment = c(ORCID = "0000-0002-3658-4517")),
