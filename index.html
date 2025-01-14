@@ -6,11 +6,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Easily Install and Load `bbou` (Boreal cariBOU) Packages • bbousuite</title>
-<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="katex-auto.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Roboto_Condensed-0.4.9/font.css" rel="stylesheet">
+<link href="deps/Roboto_Mono-0.4.9/font.css" rel="stylesheet">
+<link href="deps/Playfair_Display-0.4.9/font.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Easily Install and Load `bbou` (Boreal cariBOU) Packages">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><link href="deps/KaTex-0.16.10/katex.min.css" rel="stylesheet">
+<script src="deps/KaTex-0.16.10/katex.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Easily Install and Load `bbou` (Boreal cariBOU) Packages">
 <meta name="description" content="The `bbou` suite of packages are designed to allow analysis (`bbouretro` and `bboutools`) and simulation (`bbousims`) of Boreal Caribou survival and recruitment data (bboudata) to estimate population growth rates. A shiny app is also available (`bboushiny`).">
 <meta property="og:description" content="The `bbou` suite of packages are designed to allow analysis (`bbouretro` and `bboutools`) and simulation (`bbousims`) of Boreal Caribou survival and recruitment data (bboudata) to estimate population growth rates. A shiny app is also available (`bboushiny`).">
 </head>
@@ -153,8 +157,10 @@ Copyright 2023-2024 Province of Alberta</p>
 <ul class="list-unstyled">
 <li>Seb Dalgarno <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-3658-4517" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>John Boulanger <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-8222-1445" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Ayla Pearson <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-7388-1222" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Joe Thorley <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-7683-4592" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>
+<a href="https://www.poissonconsulting.ca/author/ayla-pearson/" class="external-link">Ayla Pearson</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-7388-1222" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>
+<a href="https://www.poissonconsulting.ca/author/joe-thorley/" class="external-link">Joe Thorley</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-7683-4592" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Troy Hegel <br><small class="roles"> Author </small>  </li>
 <li>Barry Nobert <br><small class="roles"> Author </small>  </li>
 <li>Dave Hervieux <br><small class="roles"> Author </small>  </li>
@@ -175,7 +181,7 @@ Copyright 2023-2024 Province of Alberta</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Seb Dalgarno, John Boulanger, Ayla Pearson, Joe Thorley, Troy Hegel, Barry Nobert, Dave Hervieux.</p>
+  <p>Developed by Seb Dalgarno, John Boulanger, <a href="https://www.poissonconsulting.ca/author/ayla-pearson/" class="external-link">Ayla Pearson</a>, <a href="https://www.poissonconsulting.ca/author/joe-thorley/" class="external-link">Joe Thorley</a>, Troy Hegel, Barry Nobert, Dave Hervieux.</p>
 </div>
 
 <div class="pkgdown-footer-right">

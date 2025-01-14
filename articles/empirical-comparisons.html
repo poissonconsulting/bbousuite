@@ -6,11 +6,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Empirical comparison of traditional and Bayesian approaches to estimate survival, recruitment and trend • bbousuite</title>
-<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="../katex-auto.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Roboto_Condensed-0.4.9/font.css" rel="stylesheet">
+<link href="../deps/Roboto_Mono-0.4.9/font.css" rel="stylesheet">
+<link href="../deps/Playfair_Display-0.4.9/font.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Empirical comparison of traditional and Bayesian approaches to estimate survival, recruitment and trend">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><link href="../deps/KaTex-0.16.10/katex.min.css" rel="stylesheet">
+<script src="../deps/KaTex-0.16.10/katex.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Empirical comparison of traditional and Bayesian approaches to estimate survival, recruitment and trend">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -126,76 +130,58 @@ approaches where a confidence interval is not possible.</p>
 trend.<a class="anchor" aria-label="anchor" href="#review-of-formulas-used-to-estimate-survival-recruitment-and-trend-"></a>
 </h3>
 <div class="section level4">
-<h4 id="survival-s">Survival,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math><a class="anchor" aria-label="anchor" href="#survival-s"></a>
+<h4 id="survival-s">Survival, <span class="math inline">S</span><a class="anchor" aria-label="anchor" href="#survival-s"></a>
 </h4>
 <p>Traditional and Bayesian methods use the staggered entry Kaplan-Meier
 method, which is defined algebraically below <span class="citation">(Pollock et al. 1989)</span>. The probability of
-surviving in the
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>th
-time step (usually month) is given by the equation below</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>S</mi><mo accent="true">̂</mo></mover><mi>i</mi></msub><mo>=</mo><mn>1</mn><mo>−</mo><mfrac><msub><mi>d</mi><mi>i</mi></msub><msub><mi>r</mi><mi>i</mi></msub></mfrac></mrow><annotation encoding="application/x-tex"> \hat{S}_{i} = 1 - \frac{d_{i}}{r_{i}} </annotation></semantics></math></p>
-<p>where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mi>i</mi></msub><annotation encoding="application/x-tex">d_{i}</annotation></semantics></math>
-is the number of mortalities during the period and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mi>i</mi></msub><annotation encoding="application/x-tex">r_{i}</annotation></semantics></math>
+surviving in the <span class="math inline">i</span>th time step (usually
+month) is given by the equation below</p>
+<p><span class="math display"> \hat{S}_{i} = 1 - \frac{d_{i}}{r_{i}}
+</span></p>
+<p>where <span class="math inline">d_{i}</span> is the number of
+mortalities during the period and <span class="math inline">r_{i}</span>
 is the number of collared individuals at the start of period. The
-estimated survival for any arbitrary time period
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
-(usually year) is given by</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>S</mi><mo accent="true">̂</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munder><mo>∏</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow></munder><mrow><mo stretchy="true" form="prefix">(</mo><msub><mover><mi>S</mi><mo accent="true">̂</mo></mover><mrow><mi>i</mi><mo>,</mo><mi>t</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex"> \hat{S}(t) = \prod_{i=1}(\hat{S}_{i,t}) </annotation></semantics></math></p>
-<p>where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>
-is the survival during the
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>th
-time step of the
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>th
-period. Traditional approaches use the simple product of monthly
-survival estimates to obtain yearly survival estimates. Bayesian
-approaches model survival based on binomial distribution. Fixed effects
-Bayesian models treat monthly survival as a random effect with yearly
-survival as a fixed effect meaning that a parameter is estimated for
-every year. Further details on the Kaplan-Meier approach as applied in
-boreal caribou studies are given in
+estimated survival for any arbitrary time period <span class="math inline">t</span> (usually year) is given by</p>
+<p><span class="math display"> \hat{S}(t) = \prod_{i=1}(\hat{S}_{i,t})
+</span></p>
+<p>where <span class="math inline">S</span> is the survival during the
+<span class="math inline">i</span>th time step of the <span class="math inline">t</span>th period. Traditional approaches use the
+simple product of monthly survival estimates to obtain yearly survival
+estimates. Bayesian approaches model survival based on binomial
+distribution. Fixed effects Bayesian models treat monthly survival as a
+random effect with yearly survival as a fixed effect meaning that a
+parameter is estimated for every year. Further details on the
+Kaplan-Meier approach as applied in boreal caribou studies are given in
 <code>vignette("previous-methods")</code>.</p>
 </div>
 <div class="section level4">
-<h4 id="recruitment-r">Recruitment,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math><a class="anchor" aria-label="anchor" href="#recruitment-r"></a>
+<h4 id="recruitment-r">Recruitment, <span class="math inline">R</span><a class="anchor" aria-label="anchor" href="#recruitment-r"></a>
 </h4>
 <p>Both traditional and Bayesian approaches estimate recruitment
-following the methods of DeCesare et al. <span class="citation">(2012)</span>. The age ratio,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>,
-is commonly estimated as the number of calves,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><msub><mi></mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">n{_j}</annotation></semantics></math>,
-per adult female,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>n</mi><mrow><mi>a</mi><mi>f</mi></mrow></msub><annotation encoding="application/x-tex">n_{af}</annotation></semantics></math>,
-observed at the end of a measured year, such that</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mfrac><msub><mi>n</mi><mi>j</mi></msub><msub><mi>n</mi><mrow><mi>a</mi><mi>f</mi></mrow></msub></mfrac></mrow><annotation encoding="application/x-tex">X = \frac{n_j}{n_{af}}</annotation></semantics></math></p>
-<p>where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>⋅</mo><mi>s</mi><mi>e</mi><mi>x</mi><mi>_</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow><annotation encoding="application/x-tex">X \cdot sex\_ratio</annotation></semantics></math>
-estimates the number of female calves
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>n</mi><mrow><mi>j</mi><mi>f</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(n_{jf})</annotation></semantics></math>
+following the methods of DeCesare et al. <span class="citation">(2012)</span>. The age ratio, <span class="math inline">X</span>, is commonly estimated as the number of
+calves, <span class="math inline">n{_j}</span>, per adult female, <span class="math inline">n_{af}</span>, observed at the end of a measured
+year, such that</p>
+<p><span class="math display">X = \frac{n_j}{n_{af}}</span></p>
+<p>where <span class="math inline">X \cdot sex\_ratio</span> estimates
+the number of female calves <span class="math inline">(n_{jf})</span>
 per adult female.</p>
 <p>Recruitment is estimated using the equation below which accounts for
 recruitment of calves into the yearling/adult age class at the end of
 the caribou year.</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mi>R</mi><mi>M</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>X</mi><mo>⋅</mo><mi>s</mi><mi>e</mi><mi>x</mi><mi>_</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow><mrow><mn>1</mn><mo>+</mo><mi>X</mi><mo>⋅</mo><mi>s</mi><mi>e</mi><mi>x</mi><mi>_</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">R_{RM} = \frac{X \cdot sex\_ratio}{1 + X \cdot sex\_ratio}</annotation></semantics></math></p>
+<p><span class="math display">R_{RM} = \frac{X \cdot sex\_ratio}{1 + X
+\cdot sex\_ratio}</span></p>
 <p>For traditional methods, estimates are based upon the raw ratios from
 field data whereas recruitment is modelled based on a binomial
 distribution for Bayesian methods.</p>
 </div>
 <div class="section level4">
-<h4 id="population-growth-lambda">Population Growth,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math><a class="anchor" aria-label="anchor" href="#population-growth-lambda"></a>
+<h4 id="population-growth-lambda">Population Growth, <span class="math inline">\lambda</span><a class="anchor" aria-label="anchor" href="#population-growth-lambda"></a>
 </h4>
 <p>Both traditional and Bayesian approaches use the basic
 Hatter-Bergerud method <span class="citation">(Hatter and Bergerud
 1991)</span>.</p>
-<p>The basic Hatter-Bergerud equation used to estimate
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
-is given below.</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mi>S</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>R</mi><mo stretchy="true" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\lambda = \frac{(S)}{(1 - R)}</annotation></semantics></math>
+<p>The basic Hatter-Bergerud equation used to estimate <span class="math inline">\lambda</span> is given below.</p>
+<p><span class="math display">\lambda = \frac{(S)}{(1 - R)}</span>
 Variance for lambda estimates is estimated using a simulation approach
 for traditional approach whereas variances are estimates using Markov
 Monte Carlo methods for Bayesian approaches. The resulting estimates and
@@ -326,7 +312,7 @@ D. Curtis. 1989. <span>“Survival <span>Analysis</span> in
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Seb Dalgarno, John Boulanger, Ayla Pearson, Joe Thorley, Troy Hegel, Barry Nobert, Dave Hervieux.</p>
+  <p>Developed by Seb Dalgarno, John Boulanger, <a href="https://www.poissonconsulting.ca/author/ayla-pearson/" class="external-link">Ayla Pearson</a>, <a href="https://www.poissonconsulting.ca/author/joe-thorley/" class="external-link">Joe Thorley</a>, Troy Hegel, Barry Nobert, Dave Hervieux.</p>
 </div>
 
 <div class="pkgdown-footer-right">
