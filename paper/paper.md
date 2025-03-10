@@ -49,7 +49,7 @@ Such populations may be managed based on their population growth rate ($\lambda$
 
 $$\lambda = \frac{S}{1- R}$$
 
-The `bbou` suite is a set of R packages [@r_core_team_2024] to facilitate simulation and analysis of boreal caribou survival and recruitment data to estimate population growth.  
+The `bbou`suite is a set of R packages [@r_core_team_2024] to facilitate simulation and analysis of boreal caribou survival and recruitment data to estimate population growth.  
 
 It consists of:  
 
@@ -67,15 +67,15 @@ Each R package has a website with function documentation, a 'Get Started' guide 
 
 Boreal caribou occur in most provinces and territories in Canada, and are listed as threatened under Canada's Species at Risk Act [@ECCC_2023].
 Each jurisdiction is responsible for monitoring their respective boreal caribou populations.
-Numerous methods have been used to estimate population growth, which can make cross-jurisdictional conversations on the status of the species complex. 
+Numerous methods have been used to estimate population growth, which can complicate cross-jurisdictional comparisons on the status of the various populations. 
 
-The set of R packages in `bbousuite` aim to address this challenge.
+The set of R packages in `bbousuite` aims to address this challenge.
 `bboutools` provides a standardized methodology with simple, general models and reasonable defaults for estimating survival, recruitment, and population growth that can be compared across jurisdictions.
 In addition, `bboushiny` provides access to `bboutools` functionality in a GUI; `bbouretro` facilitates comparison with traditional methods; and `bbousims` facilitates comparison of various methods' ability to recover known parameter values from simulated data. 
 
 There is an existing web-based application for estimating boreal caribou population growth rate [@eacker_webbased_2019]. 
 We consider `bbousuite` to be an evolution of this application. 
-The methods used are similar, but the `bboushiny` GUI is more user-friendly and the `bboutools`, `bbouretro`, and `bbousims` R packages provide more fine-grained control of analyses and the ability to compare methods. 
+The methods used are similar, but the `bboushiny` GUI is more stream-lined while the `bboutools`, `bbouretro`, and `bbousims` R packages provide more fine-grained control of analyses and the ability to compare methods. 
 
 The `caribouMetrics` R package and [associated shiny application](https://github.com/LandSciTech/BayesianCaribouDemographicProjection) also have overlapping functionality. 
 However, the primary goal of these tools is to forecast boreal caribou populations under different monitoring and disturbance scenarios [@dyson_2022].
@@ -105,7 +105,7 @@ Some key differences between `bbouretro` and `bboutools` include:
 - `bboutools` models can include year as a random effect, where individual year effects are assumed to be drawn from a common underlying distribution and information is shared among years.  
 - `bboutools` models can include an underlying trend.  
 
-In addition, with `bboutools` models fit in a Bayesian framework:  
+In addition, with `bboutools` models that are fit in a Bayesian framework:  
 
 - models can incorporate prior knowledge, which is especially useful when data are sparse.  
 - posterior distributions of parameters can be combined to produce derived parameters (e.g., population growth) with full information about uncertainty retained.  
