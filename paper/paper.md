@@ -59,7 +59,7 @@ It consists of:
 - [`bbouretro`](https://poissonconsulting.github.io/bbouretro/), a set of functions to estimate population growth using traditional frequentist methods.  
 - [`bbousims`](https://poissonconsulting.github.io/bbousims/), a set of functions to simulate survival and recruitment data from hypothetical radio-collaring and composition surveys.  
 
-Each R package has a website with function documentation, a 'Get Started' guide and several vignettes. 
+Each R package has a website with function documentation, a 'Get Started' guide and vignettes. 
 
 ![A screenshot of the bboushiny GUI. \label{fig:bboushiny}](figures/bboushiny-survival.png)
 
