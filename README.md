@@ -37,6 +37,22 @@ It consists of:
   functions to simulate survival and recruitment data from hypothetical
   radio-collaring and composition surveys.
 
+Each R package has a website with function documentation and a ‘Get
+Started’ guide. There are also several vignettes, including `bboutools`
+[analytical
+methods](https://poissonconsulting.github.io/bboutools/articles/methods.html)
+and [prior
+selection](https://poissonconsulting.github.io/bboutools/articles/priors.html),
+`bbouretro` [analytical
+methods](https://poissonconsulting.github.io/bbouretro/articles/retro-methods.html),
+using [`bbousims` with
+`bboutools`](https://poissonconsulting.github.io/bbousims/articles/bboutools.html),
+and comparison of Bayesian and traditional method estimates with
+[empirical](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html)
+and
+[simulated](https://poissonconsulting.github.io/bbousuite/articles/simulations.html)
+data.
+
 ## Installation
 
 You can install the latest version of `bbousuite` from
