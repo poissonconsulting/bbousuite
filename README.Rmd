@@ -26,7 +26,15 @@ library(bboutools)
 The goal of `bbousuite` is to make it easy to install and load the (`bbou`) suite of
 R packages for **B**oreal cari**BOU**.
 
-The packages are designed to analysis (`bbouretro` and `bboutools`) and simulate (`bbousims`) boreal caribou survival and recruitment data (`bboudata`) to estimate population growth rates. A shiny app is also available (`bboushiny`). 
+The `bbou`suite is a set of R packages to facilitate simulation and analysis of boreal caribou survival and recruitment data to estimate population growth.  
+
+It consists of:  
+
+- [`bboudata`](https://poissonconsulting.github.io/bboudata/), a collection of simulated and anonymized empirical survival and recruitment datasets.  
+- [`bboutools`](https://poissonconsulting.github.io/bboutools/), a set of functions to estimate population growth in a Bayesian or Maximum Likelihood (ML) framework, implemented under the hood using the [Nimble](https://r-nimble.org) R package.  
+- [`bboushiny`](https://poissonconsulting.github.io/bboushiny/), a Graphical User Interface (GUI) to `bboutools`.    
+- [`bbouretro`](https://poissonconsulting.github.io/bbouretro/), a set of functions to estimate population growth using traditional frequentist methods.  
+- [`bbousims`](https://poissonconsulting.github.io/bbousims/), a set of functions to simulate survival and recruitment data from hypothetical radio-collaring and composition surveys.  
 
 ## Installation
 
