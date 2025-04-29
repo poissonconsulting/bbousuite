@@ -38,8 +38,13 @@ It consists of:
   radio-collaring and composition surveys.
 
 Each R package has a website with function documentation and a ‘Get
-Started’ guide. There are also several vignettes, including `bboutools`
-[analytical
+Started’ guide.  
+If you are completely new to the `bbou` suite, we recommend taking a
+look at the [bboutools ‘Get Started’
+guide](https://poissonconsulting.github.io/bboutools/articles/bboutools.html)
+as this demonstrates core functionality and methods.
+
+There are also several vignettes, including `bboutools` [analytical
 methods](https://poissonconsulting.github.io/bboutools/articles/methods.html)
 and [prior
 selection](https://poissonconsulting.github.io/bboutools/articles/priors.html),
