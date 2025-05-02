@@ -74,7 +74,6 @@ To load `bbousuite`
 
 ``` r
 library(bbousuite)
-#> Warning: package 'bbousuite' was built under R version 4.4.3
 #> Attaching: bboudata bbouretro bboushiny bbousims bboutools bbousuite
 #> Warning: package 'bbousims' was built under R version 4.4.3
 ```
@@ -114,6 +113,7 @@ By contributing to this project, you agree to abide by its terms.
 
 ## Licensing
 
+Copyright 2022-2023 Environment and Climate Change Canada  
 Copyright 2023-2024 Province of Alberta  
 
 The documentation is released under the [CC BY 4.0
