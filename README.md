@@ -15,10 +15,48 @@ coverage](https://codecov.io/gh/poissonconsulting/bbousuite/branch/main/graph/ba
 The goal of `bbousuite` is to make it easy to install and load the
 (`bbou`) suite of R packages for **B**oreal cari**BOU**.
 
-The packages are designed to analyse (`bbouretro` and `bboutools`) and
-simulate (`bbousims`) boreal caribou survival and recruitment data
-(`bboudata`) to estimate population growth rates. A shiny app is also
-available (`bboushiny`).
+The `bbou`suite is a set of R packages to facilitate simulation and
+analysis of boreal caribou survival and recruitment data to estimate
+population growth.
+
+It consists of:
+
+- [`bboudata`](https://poissonconsulting.github.io/bboudata/), a
+  collection of simulated and anonymized empirical survival and
+  recruitment datasets.  
+- [`bboutools`](https://poissonconsulting.github.io/bboutools/), a set
+  of functions to estimate population growth in a Bayesian or Maximum
+  Likelihood (ML) framework, implemented under the hood using the
+  [Nimble](https://r-nimble.org) R package.  
+- [`bboushiny`](https://poissonconsulting.github.io/bboushiny/), a
+  Graphical User Interface (GUI) to `bboutools`.  
+- [`bbouretro`](https://poissonconsulting.github.io/bbouretro/), a set
+  of functions to estimate population growth using traditional
+  frequentist methods.  
+- [`bbousims`](https://poissonconsulting.github.io/bbousims/), a set of
+  functions to simulate survival and recruitment data from hypothetical
+  radio-collaring and composition surveys.
+
+Each R package has a website with function documentation and a ‘Get
+Started’ guide.  
+If you are completely new to the `bbou` suite, we recommend taking a
+look at the [bboutools ‘Get Started’
+guide](https://poissonconsulting.github.io/bboutools/articles/bboutools.html)
+as this demonstrates core functionality and methods.
+
+There are also several vignettes, including `bboutools` [analytical
+methods](https://poissonconsulting.github.io/bboutools/articles/methods.html)
+and [prior
+selection](https://poissonconsulting.github.io/bboutools/articles/priors.html),
+`bbouretro` [analytical
+methods](https://poissonconsulting.github.io/bbouretro/articles/retro-methods.html),
+using [`bbousims` with
+`bboutools`](https://poissonconsulting.github.io/bbousims/articles/bboutools.html),
+and comparison of Bayesian and traditional method estimates with
+[empirical](https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html)
+and
+[simulated](https://poissonconsulting.github.io/bbousuite/articles/simulations.html)
+data.
 
 ## Installation
 
@@ -32,11 +70,16 @@ remotes::install_github("poissonconsulting/bbousuite")
 
 ## Load
 
-To load `bbousite`
+To load `bbousuite`
 
 ``` r
 library(bbousuite)
 #> Attaching: bboudata bbouretro bboushiny bbousims bboutools bbousuite
+#> 
+#> Attaching package: 'bbousuite'
+#> The following object is masked from 'package:bboutools':
+#> 
+#>     licensing_md
 ```
 
 ### Packages
@@ -67,14 +110,14 @@ guidelines.
 
 ## Code of Conduct
 
-Please note that the ssdtools project is released with a [Contributor
-Code of
+Please note that the bbou project is released with a [Contributor Code
+of
 Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
 
 ## Licensing
 
-Copyright xx xx  
+Copyright 2022-2023 Environment and Climate Change Canada  
 Copyright 2023-2024 Province of Alberta  
 
 The documentation is released under the [CC BY 4.0
