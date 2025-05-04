@@ -75,7 +75,11 @@ To load `bbousuite`
 ``` r
 library(bbousuite)
 #> Attaching: bboudata bbouretro bboushiny bbousims bboutools bbousuite
-#> Warning: package 'bbousims' was built under R version 4.4.3
+#> 
+#> Attaching package: 'bbousuite'
+#> The following object is masked from 'package:bboutools':
+#> 
+#>     licensing_md
 ```
 
 ### Packages
