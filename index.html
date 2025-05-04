@@ -6,15 +6,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Easily Install and Load `bbou` (Boreal cariBOU) Packages • bbousuite</title>
-<script src="katex-auto.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- katex math --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><script src="katex-auto.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Roboto_Condensed-0.4.9/font.css" rel="stylesheet">
-<link href="deps/Roboto_Mono-0.4.9/font.css" rel="stylesheet">
-<link href="deps/Playfair_Display-0.4.9/font.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Roboto_Condensed-0.4.10/font.css" rel="stylesheet">
+<link href="deps/Roboto_Mono-0.4.10/font.css" rel="stylesheet">
+<link href="deps/Playfair_Display-0.4.10/font.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><link href="deps/KaTex-0.16.10/katex.min.css" rel="stylesheet">
-<script src="deps/KaTex-0.16.10/katex.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Easily Install and Load `bbou` (Boreal cariBOU) Packages">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Easily Install and Load `bbou` (Boreal cariBOU) Packages">
 <meta name="description" content="The `bbou` suite of packages are designed to allow analysis (`bbouretro` and `bboutools`) and simulation (`bbousims`) of Boreal Caribou survival and recruitment data (bboudata) to estimate population growth rates. A shiny app is also available (`bboushiny`).">
 <meta property="og:description" content="The `bbou` suite of packages are designed to allow analysis (`bbouretro` and `bboutools`) and simulation (`bbousims`) of Boreal Caribou survival and recruitment data (bboudata) to estimate population growth rates. A shiny app is also available (`bboushiny`).">
 </head>
@@ -63,7 +63,27 @@
 <!-- badges: start -->
 
 <p>The goal of <code>bbousuite</code> is to make it easy to install and load the (<code>bbou</code>) suite of R packages for <strong>B</strong>oreal cari<strong>BOU</strong>.</p>
-<p>The packages are designed to analyse (<code>bbouretro</code> and <code>bboutools</code>) and simulate (<code>bbousims</code>) boreal caribou survival and recruitment data (<code>bboudata</code>) to estimate population growth rates. A shiny app is also available (<code>bboushiny</code>).</p>
+<p>The <code>bbou</code>suite is a set of R packages to facilitate simulation and analysis of boreal caribou survival and recruitment data to estimate population growth.</p>
+<p>It consists of:</p>
+<ul>
+<li>
+<a href="https://poissonconsulting.github.io/bboudata/" class="external-link"><code>bboudata</code></a>, a collection of simulated and anonymized empirical survival and recruitment datasets.<br>
+</li>
+<li>
+<a href="https://poissonconsulting.github.io/bboutools/" class="external-link"><code>bboutools</code></a>, a set of functions to estimate population growth in a Bayesian or Maximum Likelihood (ML) framework, implemented under the hood using the <a href="https://r-nimble.org" class="external-link">Nimble</a> R package.<br>
+</li>
+<li>
+<a href="https://poissonconsulting.github.io/bboushiny/" class="external-link"><code>bboushiny</code></a>, a Graphical User Interface (GUI) to <code>bboutools</code>.<br>
+</li>
+<li>
+<a href="https://poissonconsulting.github.io/bbouretro/" class="external-link"><code>bbouretro</code></a>, a set of functions to estimate population growth using traditional frequentist methods.<br>
+</li>
+<li>
+<a href="https://poissonconsulting.github.io/bbousims/" class="external-link"><code>bbousims</code></a>, a set of functions to simulate survival and recruitment data from hypothetical radio-collaring and composition surveys.</li>
+</ul>
+<p>Each R package has a website with function documentation and a ‘Get Started’ guide.<br>
+If you are completely new to the <code>bbou</code> suite, we recommend taking a look at the <a href="https://poissonconsulting.github.io/bboutools/articles/bboutools.html" class="external-link">bboutools ‘Get Started’ guide</a> as this demonstrates core functionality and methods.</p>
+<p>There are also several vignettes, including <code>bboutools</code> <a href="https://poissonconsulting.github.io/bboutools/articles/methods.html" class="external-link">analytical methods</a> and <a href="https://poissonconsulting.github.io/bboutools/articles/priors.html" class="external-link">prior selection</a>, <code>bbouretro</code> <a href="https://poissonconsulting.github.io/bbouretro/articles/retro-methods.html" class="external-link">analytical methods</a>, using <a href="https://poissonconsulting.github.io/bbousims/articles/bboutools.html" class="external-link"><code>bbousims</code> with <code>bboutools</code></a>, and comparison of Bayesian and traditional method estimates with <a href="https://poissonconsulting.github.io/bbousuite/articles/empirical-comparisons.html">empirical</a> and <a href="https://poissonconsulting.github.io/bbousuite/articles/simulations.html">simulated</a> data.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -75,10 +95,15 @@
 <div class="section level2">
 <h2 id="load">Load<a class="anchor" aria-label="anchor" href="#load"></a>
 </h2>
-<p>To load <code>bbousite</code></p>
+<p>To load <code>bbousuite</code></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/bbousuite" class="external-link">bbousuite</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Attaching: bboudata bbouretro bboushiny bbousims bboutools bbousuite</span></span></code></pre></div>
+<span><span class="co">#&gt; Attaching: bboudata bbouretro bboushiny bbousims bboutools bbousuite</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'bbousuite'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:bboutools':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     licensing_md</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="packages">Packages<a class="anchor" aria-label="anchor" href="#packages"></a>
 </h3>
@@ -110,12 +135,12 @@
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
 </h2>
-<p>Please note that the ssdtools project is released with a <a href="https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>Please note that the bbou project is released with a <a href="https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 <div class="section level2">
 <h2 id="licensing">Licensing<a class="anchor" aria-label="anchor" href="#licensing"></a>
 </h2>
-<p>Copyright xx xx<br>
+<p>Copyright 2022-2023 Environment and Climate Change Canada<br>
 Copyright 2023-2024 Province of Alberta</p>
 <p>The documentation is released under the <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC BY 4.0 License</a></p>
 <p>The code is released under the <a href="https://www.apache.org/licenses/LICENSE-2.0" class="external-link">Apache License 2.0</a></p>
@@ -156,15 +181,15 @@ Copyright 2023-2024 Province of Alberta</p>
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://www.poissonconsulting.ca/author/seb-dalgarno/" class="external-link">Seb Dalgarno</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-3658-4517" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>John Boulanger <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-8222-1445" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<a href="https://www.poissonconsulting.ca/author/seb-dalgarno/" class="external-link">Seb Dalgarno</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-3658-4517" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<li>John Boulanger <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-8222-1445" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 <li>
-<a href="https://www.poissonconsulting.ca/author/ayla-pearson/" class="external-link">Ayla Pearson</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-7388-1222" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<a href="https://www.poissonconsulting.ca/author/ayla-pearson/" class="external-link">Ayla Pearson</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-7388-1222" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 <li>
-<a href="https://www.poissonconsulting.ca/author/joe-thorley/" class="external-link">Joe Thorley</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-7683-4592" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Troy Hegel <br><small class="roles"> Author </small>  </li>
-<li>Barry Nobert <br><small class="roles"> Author </small>  </li>
-<li>Dave Hervieux <br><small class="roles"> Author </small>  </li>
+<a href="https://www.poissonconsulting.ca/author/joe-thorley/" class="external-link">Joe Thorley</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-7683-4592" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<li>Troy Hegel <br><small class="roles"> Author </small>   </li>
+<li>Barry Nobert <br><small class="roles"> Author </small>   </li>
+<li>Dave Hervieux <br><small class="roles"> Author </small>   </li>
 </ul>
 </div>
 
@@ -186,7 +211,7 @@ Copyright 2023-2024 Province of Alberta</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
 </div>
 
     </footer>
