@@ -102,10 +102,10 @@ cat(table_tag("growth/n_noCI", precap = "Table 6."))
 For the survival model, higher sample size resulted in reduced bias, higher precision and higher coverage for all statistical methods.
 The Bayesian random effects model performed best, with improvement over other methods particularly at lower sample sizes. 
 
-Results for the recruitment model were similar, although the difference between methods was less extreme. 
-In general, the Bayesian random effects model performed best.
+Results for the recruitment model were less clear, with methods performing similarly across sample sizes.
 Surprisingly, coverage was reduced with higher proportion of groups observed in the Bayesian recruitment models. 
 We suspect that this is caused by higher precision leading to a higher tendency for the 95% CI to not include the true value. 
+Considering population growth estimates generally, the Bayesian random effects model performed best.
 
 The growth predictions are derived from the recruitment and survival estimates and thus, it is unsurprising that the Bayesian random effects model performed best. 
 
