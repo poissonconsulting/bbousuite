@@ -1,5 +1,9 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# bbousuite 0.1.1
+
+- Release following JOSS review.
+
 # bbousuite 0.1.0
 
 - Minor release.
