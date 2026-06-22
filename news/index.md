@@ -1,5 +1,10 @@
 # Changelog
 
+## bbousuite 0.1.1.9000
+
+- Add fledge-bump workflow
+- Add fledge-tag-on-merge workflow
+
 ## bbousuite 0.1.1
 
 - Release following JOSS review.
