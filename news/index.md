@@ -1,5 +1,9 @@
 # Changelog
 
+## bbousuite 0.1.1.9001
+
+- Same as previous version.
+
 ## bbousuite 0.1.1.9000
 
 - Add fledge-bump workflow
