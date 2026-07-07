@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# bbousuite 0.1.1.9002
+
+- Same as previous version.
+
+
 # bbousuite 0.1.1.9001
 
 - Same as previous version.
