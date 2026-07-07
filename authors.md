@@ -29,13 +29,13 @@ Source:
 
 Dalgarno S, Boulanger J, Pearson A, Thorley J, Hegel T, Nobert B,
 Hervieux D (2026). *bbousuite: Easily Install and Load 'bbou' (Boreal
-cariBOU) Packages*. R package version 0.1.1.9001,
+cariBOU) Packages*. R package version 0.1.1.9002,
 <https://github.com/poissonconsulting/bbousuite>.
 
     @Manual{,
       title = {bbousuite: Easily Install and Load `bbou` (Boreal cariBOU) Packages},
       author = {Seb Dalgarno and John Boulanger and Ayla Pearson and Joe Thorley and Troy Hegel and Barry Nobert and Dave Hervieux},
       year = {2026},
-      note = {R package version 0.1.1.9001},
+      note = {R package version 0.1.1.9002},
       url = {https://github.com/poissonconsulting/bbousuite},
     }
