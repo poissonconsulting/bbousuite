@@ -1,4 +1,9 @@
-<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+<!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
+
+# bbousuite 0.1.1.9004
+
+- Standardize CI (tier: important) (#31).
+
 
 # bbousuite 0.1.1.9003
 
