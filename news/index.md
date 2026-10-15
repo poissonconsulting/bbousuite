@@ -1,5 +1,10 @@
 # Changelog
 
+## bbousuite 0.1.1.9004
+
+- Standardize CI (tier: important)
+  ([\#31](https://github.com/poissonconsulting/bbousuite/issues/31)).
+
 ## bbousuite 0.1.1.9003
 
 - Same as previous version.
